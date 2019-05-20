@@ -25,10 +25,10 @@ public class AdminRepo implements PostAction {
     //Method to create a new post
     @Override
     public Post createPost(Post post, Person person) {
-        String sql = "INSERT INTO post(personID, postDate, changedDate, headline, textField, comments)" +
-                "VALUES(?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO post (personID, postDate, changedDate, headline, textField)" +
+                "VALUES(?, ?, ?, ?, ?)";
         template.update(sql, person.getPersonID(), post.getPostDate(), post.getChangedDate(), post.getHeadline(),
-                post.getTextField(), post.getComments());
+                post.getTextField());
         return null;
     }
 

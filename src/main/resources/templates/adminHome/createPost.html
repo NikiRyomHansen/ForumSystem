@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Post</title>
+</head>
+<body>
+
+    <h1>Create a new post</h1>
+
+    <table>
+        <tbody>
+            <form action="/index/createPost" method="post">
+                <tr>
+                    <td>Person ID (Change later)</td>
+                    <td><input type="text" name="personID"></td>
+                </tr>
+                <tr>
+                    <td><label>Title</label></td>
+                    <td><input type="text" name="headline"></td>
+                </tr>
+                <tr>
+                    <td><label>Post text</label></td>
+                    <td><input type="text" name="textField"></td>
+                </tr>
+
+                <input type="submit" value="Create post">
+
+            </form>
+        </tbody>
+    </table>
+
+</body>
+</html>

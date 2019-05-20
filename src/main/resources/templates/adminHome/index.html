@@ -1,13 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Admin Forside</title>
+    <link rel="stylesheet" type="text/css" href="adminHomeCSS.css">
 </head>
 <body>
 
     <h1>Admin, forum forside</h1>
 
+    <a href="/createPost">
+        <button class="btn-createPost btn" id="btn-createPost">Create new post</button>
+    </a>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Textfield</th>
+                <th>Post Date</th>
+                <th>Last edit</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="post: ${postList}">
+                <td th:text="${post.headline}" />
+                <td th:text="${post.textField}" />
+                <td th:text="${post.postDate}" />
+                <td th:text="${post.changedDate}" />
+            </tr>
+        </tbody>
+    </table>
 
 
 </body>
