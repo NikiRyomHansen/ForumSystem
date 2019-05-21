@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Create Post</title>
+    <link rel="stylesheet" type="text/css" href="createPostCSS.css">
 </head>
 <body>
 
@@ -20,11 +21,11 @@
                     <td><input type="text" name="headline"></td>
                 </tr>
                 <tr>
-                    <td><label>Post text</label></td>
-                    <td><input type="text" name="textField"></td>
+                    <td id="tdLabelPostInputTextField"><label>Post text</label></td>
+                    <td id="tdInputPostInputTextField"><input type="text" id="postInputTextField" name="textField"></td>
                 </tr>
 
-                <input type="submit" value="Create post">
+                <input type="submit" id="btn-createPostSubmit" value="Create post">
 
             </form>
         </tbody>

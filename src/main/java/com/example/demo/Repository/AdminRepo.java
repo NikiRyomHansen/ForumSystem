@@ -23,7 +23,7 @@ public class AdminRepo implements PostAction {
     }
 
     //Method to create a new post
-    @Override
+    @Override //TODO: Figure out why the table and columns are not recognized even though the functionality works
     public Post createPost(Post post, Person person) {
         String sql = "INSERT INTO post (personID, postDate, changedDate, headline, textField)" +
                 "VALUES(?, ?, ?, ?, ?)";
