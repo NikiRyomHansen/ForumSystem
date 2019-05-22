@@ -8,35 +8,11 @@
 </head>
 <body>
 
-<!-- this the html for the top navigation bar its id name in the ccs stylesheet is topnav-->
-    <header  id="topnav">
-        <ul>
 
-            <li id="rightHome" class="topNav"><a> HOME </a></li>
+<header th:replace="navigation/headNavigation" :: header>
 
-            <li id="leftLogOut" class="topNav"><a> LOG OUT </a></li>
+</header>
 
-
-            <li id="theSupport" class="topNav"><a> SUPPORT </a></li>
-
-            <li id="theNotification" class="topNav"><a> NOTIFICATION </a></li>
-        </ul>
-    </header>
-
-<!-- This is the side Navigation bar -->
-    <nav id=sidenav>
-        <ul>
-            <li><a>profile</a></li>
-            <li><a>picture</a></li>
-            <li><a>respect</a></li>
-            <li><a>rating</a></li>
-        </ul>
-    </nav>
-
-<!-- ------------------------- -->
-
-
-<!-- This is the content on the page-->
     <div id="Content">
 
     <h1>Admin, forum forside</h1>

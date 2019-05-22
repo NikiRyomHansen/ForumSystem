@@ -6,8 +6,8 @@ body {
 }
 
 #Content{
-    margin-top: 50px;
-    margin-left: 1%;
+    padding-top: 50px;
+    padding-left: 1%;
 }
 
 
@@ -72,7 +72,7 @@ CSS to side navigation bar and it is
 ------------------------*/
 #sidenav{
     float: right;
-    margin-top: -5px;
+    padding-top: 46px;
 
 }
 

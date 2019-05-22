@@ -21,6 +21,16 @@ public class Person {
     public Person() {
     }
 
+    //Constructor containing all fields except permission
+    public Person(int personID, String username, String passwordPerson, String email, byte[] picture, String description) {
+        this.personID = personID;
+        this.username = username;
+        this.passwordPerson = passwordPerson;
+        this.email = email;
+        this.picture = picture;
+        this.description = description;
+    }
+
     //Constructor containing all fields
     public Person(int personID, String username, String passwordPerson, String email, byte[] picture, String description, int permission) {
         this.personID = personID;
