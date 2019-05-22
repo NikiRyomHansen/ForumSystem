@@ -35,11 +35,11 @@ public class UserActionController {
        return "adminHome/to_be_done";
     }
 
+    //Request a PostMapping to add additional user info
     @PostMapping("addAdditionalUserInfo")
     public String addAdditionalUserInfo(@ModelAttribute User user) {
         userCreateRepo.addAdditionalInfoToUser(user);
         return "redirect:/";
     }
-
 
 }

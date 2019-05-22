@@ -19,6 +19,7 @@ public class UserCreateRepo {
         return null;
     }
 
+    //Method to insert picture and description to additional profile info page
     public User addAdditionalInfoToUser(User user) {
         String sql = "INSERT INTO person (picture, description)" +
                 "VALUES(?, ?)";

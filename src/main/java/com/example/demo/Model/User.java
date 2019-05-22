@@ -13,5 +13,4 @@ public class User extends Person {
         setPermission(0);
     }
 
-
 }
