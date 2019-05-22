@@ -24,15 +24,15 @@ public class UserActionController {
 
     }
 
-    @GetMapping("/CreateUserWindow")
-    public String CreateUserWindow(){
+    @GetMapping("/createUserWindow")
+    public String createUserWindow(){
         return "adminHome/create";
     }
 
-    @PostMapping("CreateUserWindow")
-    public String CreateUser(@ModelAttribute User user){
-       userCreateRepo.CreateUser(user);
-       return "adminHome/To_be_done";
+    @PostMapping("createUserWindow")
+    public String createUser(@ModelAttribute User user){
+       userCreateRepo.createUser(user);
+       return "adminHome/to_be_done";
 
     }
 

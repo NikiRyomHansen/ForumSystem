@@ -11,9 +11,13 @@ public class UserCreateService {
     @Autowired
     UserCreateRepo userCreateRepo;
     
-    public User CreateUser(User user){
-        return userCreateRepo.CreateUser(user);
+    public User createUser(User user){
+        return userCreateRepo.createUser(user);
 
+    }
+
+    public User addAdditionalInfoToUser(User user) {
+        return userCreateRepo.addAdditionalInfoToUser(user);
     }
 
 }
