@@ -12,7 +12,7 @@ public class UserCreateRepo {
     JdbcTemplate template;
 
     //Method to CreateUser
-    public User CreateUser(User user){
+    public User createUser(User user){
         String sql = "INSERT INTO person (username, passwordPerson, email)" +
                 "VALUES(?, ?, ?, ?, ?, ?)";
         template.update(sql, user.getUsername(), user.getPasswordPerson(), user.getEmail());
@@ -20,7 +20,9 @@ public class UserCreateRepo {
     }
 
     public User addAdditionalInfoToUser(User user) {
-        String sql = "INSERT INTO person (";
+        String sql = "INSERT INTO person (picture, description)" +
+                "VALUES(?, ?)";
+        template.update(sql, user.getPicture(), user.getDescription());
         return null;
     }
 
