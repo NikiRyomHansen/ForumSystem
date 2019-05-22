@@ -1,5 +1,4 @@
 #DDL til forum_system
-
 #Create database and check if it exists
 CREATE DATABASE IF NOT EXISTS forum_system;
 
@@ -14,8 +13,8 @@ CREATE TABLE IF NOT EXISTS person(
     passwordPerson VARCHAR(255) NOT NULL, #Der er en SQL kommando der hedder password, derfor hedder kolonnen passwordPerson
     email VARCHAR(255) NOT NULL,
     picture BLOB,
-    descriptionPerson VARCHAR(255), #Der er en SQL kommando der hedder description, derfor hedder kolonnen descriptionPerson
-    permission INT(10) NOT NULL, #Muligvis ændre denne til INT(1) da der aldrig komme mere end ét cifrede permissions.
+    descriptionPerson VARCHAR(10000), #Der er en SQL kommando der hedder description, derfor hedder kolonnen descriptionPerson
+    permission INT(1) NOT NULL, #Muligvis ændre denne til INT(1) da der aldrig komme mere end ét cifrede permissions.
     PRIMARY KEY (personID)
 );
 
@@ -26,7 +25,7 @@ CREATE TABLE IF NOT EXISTS post(
     postDate TIMESTAMP NOT NULL,
     changedDate TIMESTAMP,
     headline VARCHAR(255),
-    textField VARCHAR(255), #SQL kommando som hedder text, derfor bruges textField.
+    textField VARCHAR(10000), #SQL kommando som hedder text, derfor bruges textField.
     PRIMARY KEY (postID),
     FOREIGN KEY (personID) REFERENCES person(personID)
 );
@@ -69,7 +68,7 @@ CREATE TABLE IF NOT EXISTS dislikes(
 CREATE TABLE IF NOT EXISTS comments(
 	commentID INT(10) NOT NULL AUTO_INCREMENT,
     personID INT(10) NOT NULL,
-    commentText VARCHAR(255),
+    commentText VARCHAR(10000),
     PRIMARY KEY (commentID),
     FOREIGN KEY (personID) REFERENCES person(personID)
 );
