@@ -10,8 +10,8 @@ public class Person {
     @Id
     //fields
     private int personID;
-    private String username;
-    private String passwordPerson;
+    private String personUsername;
+    private String personPassword;
     private String email;
     private byte[] picture;
     private String description;
@@ -22,20 +22,20 @@ public class Person {
     }
 
     //Constructor containing all fields except permission
-    public Person(int personID, String username, String passwordPerson, String email, byte[] picture, String description) {
+    public Person(int personID, String personUsername, String personPassword, String email, byte[] picture, String description) {
         this.personID = personID;
-        this.username = username;
-        this.passwordPerson = passwordPerson;
+        this.personUsername = personUsername;
+        this.personPassword = personPassword;
         this.email = email;
         this.picture = picture;
         this.description = description;
     }
 
     //Constructor containing all fields
-    public Person(int personID, String username, String passwordPerson, String email, byte[] picture, String description, int permission) {
+    public Person(int personID, String personUsername, String personPassword, String email, byte[] picture, String description, int permission) {
         this.personID = personID;
-        this.username = username;
-        this.passwordPerson = passwordPerson;
+        this.personUsername = personUsername;
+        this.personPassword = personPassword;
         this.email = email;
         this.picture = picture;
         this.description = description;
@@ -50,20 +50,20 @@ public class Person {
         this.personID = personID;
     }
 
-    public String getUsername() {
-        return username;
+    public String getPersonUsername() {
+        return personUsername;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setPersonUsername(String personUsername) {
+        this.personUsername = personUsername;
     }
 
-    public String getPasswordPerson() {
-        return passwordPerson;
+    public String getPersonPassword() {
+        return personPassword;
     }
 
-    public void setPasswordPerson(String passwordPerson) {
-        this.passwordPerson = passwordPerson;
+    public void setPersonPassword(String personPassword) {
+        this.personPassword = personPassword;
     }
 
     public String getEmail() {

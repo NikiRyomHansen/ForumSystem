@@ -12,13 +12,14 @@ public class UserCreateRepo {
     JdbcTemplate template;
 
     //Method to CreateUser
-    public User createUser(User user){
-        String sql = "INSERT INTO person (username, passwordPerson, email)" +
-                "VALUES(?, ?, ?, ?, ?, ?)";
-        template.update(sql, user.getUsername(), user.getPasswordPerson(), user.getEmail());
+    public User createUserWindow(User user){
+        String sql = "INSERT INTO person (personUsername, personPassword, email)" +
+                "VALUES(?, ?, ?)";
+        template.update(sql, user.getPersonUsername(), user.getPersonPassword(), user.getEmail());
         return null;
     }
 
+    //Method to insert picture and description to additional profile info page
     public User addAdditionalInfoToUser(User user) {
         String sql = "INSERT INTO person (picture, description)" +
                 "VALUES(?, ?)";

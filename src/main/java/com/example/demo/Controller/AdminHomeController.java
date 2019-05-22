@@ -21,11 +21,11 @@ public class AdminHomeController {
     AdminPostRepo adminPostRepo;
 
     //Request a GetMapping to the front page showing all posts.
-    @GetMapping("/")
-    public String index(Model model) {
+    @GetMapping("/frontPage")
+    public String frontPage(Model model) {
         List<Post> postList = postService.fetchAll();
         model.addAttribute("postList", postList);
-        return "adminHome/index";
+        return "adminHome/frontPage";
     }
 
     //Request a GetMapping to redirect to a new html file to create a new post
@@ -35,7 +35,7 @@ public class AdminHomeController {
     }
 
     //Request a PostMapping to create a new post
-    @PostMapping("/index/createPost")
+    @PostMapping("/frontPage/createPost")
     public String createPost(@ModelAttribute Post post, @ModelAttribute Person person) {
         adminPostRepo.createPost(post, person);
         return "redirect:/";

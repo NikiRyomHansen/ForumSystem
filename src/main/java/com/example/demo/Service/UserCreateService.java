@@ -11,8 +11,8 @@ public class UserCreateService {
     @Autowired
     UserCreateRepo userCreateRepo;
     
-    public User createUser(User user){
-        return userCreateRepo.createUser(user);
+    public User createUserWindow(User user){
+        return userCreateRepo.createUserWindow(user);
 
     }
 
