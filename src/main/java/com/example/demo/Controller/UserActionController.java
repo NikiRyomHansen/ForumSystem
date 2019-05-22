@@ -26,15 +26,15 @@ public class UserActionController {
     @GetMapping("/login/frontPage")
 
 
-    @GetMapping("/createUser")
+    @GetMapping("/createUserWindow")
     public String createUserWindow(){
-        return "userHome/createUser";
+        return "userHome/createUserWindow";
     }
 
-    @PostMapping("/createUserWindow")
-    public String createUser(@ModelAttribute User user) {
-        userCreateRepo.createUser(user);
-        return "userHome/loginPage";
+    @PostMapping("/loginPage/createUserWindow")
+    public String createUserWindow(@ModelAttribute User user) {
+        userCreateRepo.createUserWindow(user);
+        return "redirect:/";
 
     }
 

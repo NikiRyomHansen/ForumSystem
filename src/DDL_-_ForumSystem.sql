@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS comments(
     FOREIGN KEY (personID) REFERENCES person(personID)
 );
 
-#Create respect_points table
+#Create respect_points table (Rasmus)
 CREATE TABLE IF NOT EXISTS respect_points(
     respectID INT(10) NOT NULL AUTO_INCREMENT,
     toUserID INT(10) NOT NULL,
@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS respect_points(
     FOREIGN KEY (fromUserID) REFERENCES person(personID)
 );
 
-#Create groups table
+#Create groups table (Rasmus)
 CREATE TABLE IF NOT EXISTS forum_groups(
     groupID INT(10) NOT NULL AUTO_INCREMENT,
     groupName VARCHAR(255) NOT NULL,
@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS forum_groups(
     PRIMARY KEY (groupID)
 );
 
-#Create group_members table
+#Create group_members table (Rasmus)
 CREATE TABLE IF NOT EXISTS group_members(
     groupMemberID INT(10) NOT NULL AUTO_INCREMENT,
     groupID INT(10) NOT NULL,
@@ -104,20 +104,20 @@ CREATE TABLE IF NOT EXISTS group_members(
     FOREIGN KEY (userID) REFERENCES person(personID)
 );
 
-#Create support table
+#Create support table (Rasmus)
 CREATE TABLE IF NOT EXISTS support(
     supportID INT(10) NOT NULL AUTO_INCREMENT,
     sentFromUserID INT(10) NOT NULL,
     category INT(10) NOT NULL,
     headline VARCHAR(255) NOT NULL,
-    text VARCHAR(10000) NOT NULL,
+    supportText VARCHAR(10000) NOT NULL,
     timestampSupport TIMESTAMP NOT NULL,
-    isSolved BOOLEAN NOT NULL,
+    isSolved BIT NOT NULL,
     PRIMARY KEY (supportID),
     FOREIGN KEY (sentFromUserID) REFERENCES person(personID)
 );
 
-#Create private_messages table
+#Create private_messages table (Rasmus)
 CREATE TABLE IF NOT EXISTS private_messages(
     privateMessageID INT(10) NOT NULL AUTO_INCREMENT,
     toUserID INT(10) NOT NULL,
@@ -125,13 +125,13 @@ CREATE TABLE IF NOT EXISTS private_messages(
     headline VARCHAR(255) NOT NULL,
     message VARCHAR(10000) NOT NULL,
     timestampPrivateMessage TIMESTAMP NOT NULL,
-    isRead BOOLEAN NOT NULL,
+    isRead BIT NOT NULL,
     PRIMARY KEY (privateMessageID),
     FOREIGN KEY (toUserID) REFERENCES person(personID),
     FOREIGN KEY (fromUserID) REFERENCES person(personID)
 );
 
-#Create follower table
+#Create follower table (Rasmus)
 CREATE TABLE IF NOT EXISTS followers(
     followerID INT(10) NOT NULL AUTO_INCREMENT,
     toUserID INT(10) NOT NULL,

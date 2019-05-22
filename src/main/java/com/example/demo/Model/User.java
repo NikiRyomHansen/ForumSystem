@@ -7,9 +7,9 @@ public class User extends Person {
 
     //Constructor containing all the fields from the Person super class
     //Setting permission to 0 to indicate that this Person is a User
-    public User(int personID, String username, String passwordPerson, String email,
+    public User(int personID, String personUsername, String personPassword, String email,
                 byte[] picture, String description) {
-        super(personID, username, passwordPerson, email, picture, description);
+        super(personID, personUsername, personPassword, email, picture, description);
         setPermission(0);
     }
 
