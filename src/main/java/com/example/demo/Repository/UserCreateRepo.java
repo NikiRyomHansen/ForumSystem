@@ -20,6 +20,7 @@ public class UserCreateRepo {
                 "VALUES(?, ?, ?, ?)";
         template.update(sql, person.getPersonUsername(), person.getPersonPassword(),
                 person.getEmail(), person.getPermission());
+        return null; // The method needs a return statement
 
     }
 
@@ -30,6 +31,17 @@ public class UserCreateRepo {
                 "     AND password = ?";
         RowMapper<User> rowMapper = new BeanPropertyRowMapper<>(User.class);
         return template.queryForObject(sql, rowMapper);
+        // If there is something in the result set, proceed to login
+
+        // Else if there is nothing in the result set, return error.
+    }
+
+    //Method to CreateUser - Niki, Khoi
+    public User createUser(User user){
+        String sql = "INSERT INTO person (username, passwordPerson, email)" +
+                "VALUES(?, ?, ?)";
+        template.update(sql, user.getPersonUsername(), user.getPersonPassword(), user.getEmail());
+        return null;
     }
 
     //Method to insert picture and description to additional profile info page - Niki

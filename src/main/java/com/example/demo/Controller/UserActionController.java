@@ -23,7 +23,7 @@ public class UserActionController {
         return "userHome/loginPage";
     }
 
-    @GetMapping("/login/frontPage")
+    //@GetMapping("/login/frontPage")
 
 
     @GetMapping("/createUserWindow")
