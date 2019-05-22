@@ -1,6 +1,6 @@
 table{
     border-collapse: collapse;
-    width: 70%;
+    width: 40%;
     margin-top: 15px;
 }
 
@@ -18,13 +18,13 @@ tr:nth-child(even){
     background-color: lightgrey;
 }
 
-.btn {
+#btn-createPostSubmit {
     border: none;
     color: white;
     padding: 7px 10px;
     text-align: center;
     background-color: green;
 }
-.btn:hover{
+#btn-createPostSubmit:hover{
     box-shadow: 2px 2px 2px #888888;
 }
