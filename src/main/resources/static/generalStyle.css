@@ -1,0 +1,99 @@
+body {
+    background: white;
+    margin-top: 0;
+    margin-right: 20%;
+    margin-left: 0;
+}
+
+#Content{
+    margin-top: 50px;
+    margin-left: 1%;
+}
+
+
+/* --------------------------
+CSS to the top navigation bar
+---------------------------*/
+#topnav ul{
+    list-style-type: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+    position: fixed;
+    top : 0;
+}
+
+#rightHome {
+    float: left;
+}
+
+#rightHome:hover{
+    background-color: limegreen;
+}
+
+#theSupport {
+    float: right;
+}
+
+#theSupport:hover{
+    background-color: limegreen;
+}
+
+#theNotification {
+    float: right;
+}
+
+#theNotification:hover{
+    background-color: limegreen;
+}
+
+#leftLogOut {
+    float:right;
+}
+
+#leftLogOut:hover{
+    background-color: red;
+}
+
+
+#topnav li {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+
+}
+
+/*------------------------------
+CSS to side navigation bar and it is
+------------------------*/
+#sidenav{
+    float: right;
+    margin-top: -5px;
+
+}
+
+#sidenav ul{
+    list-style-type: none;
+
+    margin:0;
+    padding:0;
+    background-color: black;
+    position: fixed;
+    height: 100%;
+    width: 20%;
+    overflow:auto;
+}
+
+#sidenav li a{
+    display: block;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+/*--------------------*/
+

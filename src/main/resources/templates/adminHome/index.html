@@ -4,41 +4,88 @@
     <meta charset="UTF-8">
     <title>Admin Forside</title>
     <link rel="stylesheet" type="text/css" href="adminHomeCSS.css">
+    <link rel="stylesheet" type="text/css" href="generalStyle.css">
 </head>
 <body>
+
+<!-- this the html for the top navigation bar its id name in the ccs stylesheet is topnav-->
+    <header  id="topnav">
+        <ul>
+
+            <li id="rightHome" class="topNav"><a> HOME </a></li>
+
+            <li id="leftLogOut" class="topNav"><a> LOG OUT </a></li>
+
+
+            <li id="theSupport" class="topNav"><a> SUPPORT </a></li>
+
+            <li id="theNotification" class="topNav"><a> NOTIFICATION </a></li>
+        </ul>
+    </header>
+
+<!-- This is the side Navigation bar -->
+    <nav id=sidenav>
+        <ul>
+            <li><a>profile</a></li>
+            <li><a>picture</a></li>
+            <li><a>respect</a></li>
+            <li><a>rating</a></li>
+        </ul>
+    </nav>
+
+<!-- ------------------------- -->
+
+
+<!-- This is the content on the page-->
+    <div id="Content">
 
     <h1>Admin, forum forside</h1>
 
 
-    <a href="/createPost">
-        <button class="btn-createPost btn" id="btn-createPost">Create new post</button>
-    </a>
-    <table>
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Textfield</th>
-                <th>Post Date</th>
-                <th>Last edit</th>
 
+        <a href="/createPost">
+            <button class="btn-createPost btn" id="btn-createPost">Create new post</button>
+        </a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Textfield</th>
+                    <th>Post Date</th>
+                    <th>Last edit</th>
 
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="post: ${postList}">
-                <td th:text="${post.headline}" />
-                <td th:text="${post.textField}" />
-                <td th:text="${post.postDate}" />
-                <td th:text="${post.changedDate}" />
-            </tr>
-        </tbody>
-    </table>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="post: ${postList}">
+                    <td th:text="${post.headline}" />
+                    <td th:text="${post.textField}" />
+                    <td th:text="${post.postDate}" />
+                    <td th:text="${post.changedDate}" />
+                </tr>
+            </tbody>
+        </table>
 
-    <p>By miclo</p>
-    <p>Another Text</p>
-    <p>Another one</p>
-    <p>Another cool one</p>
+        <p>Another Text</p>
+        <p>Another one</p>
+        <p>Another cool one</p> <p>Another Text</p>
+        <p>Another one</p>
+        <p>Another cool one</p> <p>Another Text</p>
+        <p>Another one</p>
+        <p>Another cool one</p> <p>Another Text</p>
+        <p>Another one</p>
+        <p>Another cool one</p> <p>Another Text</p>
+        <p>Another one</p>
+        <p>Another cool one</p> <p>Another Text</p>
+        <p>Another one</p>
+        <p>Another cool one</p> <p>Another Text</p>
+        <p>Another one</p>
+        <p>Another cool one</p> <p>Another Text</p>
+        <p>Another one</p>
+        <p>Another cool one</p> <p>Another Text</p>
+        <p>Another one</p>
+        <p>Another cool oneAnother TextAnother TextAnother TextAnother TextAnother TextAnother TextAnother TextAnother TextAnother TextAnother TextAnother TextAnother TextAnother TextAnother TextAnother Text</p>
 
-
+    </div>
 </body>
 </html>
