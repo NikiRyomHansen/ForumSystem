@@ -14,7 +14,7 @@ public class Person {
     private String personPassword;
     private String email;
     private byte[] picture;
-    private String description;
+    private String personDescription;
     private int permission;
 
     //Empty Constructor
@@ -22,23 +22,23 @@ public class Person {
     }
 
     //Constructor containing all fields except permission
-    public Person(int personID, String personUsername, String personPassword, String email, byte[] picture, String description) {
+    public Person(int personID, String personUsername, String personPassword, String email, byte[] picture, String personDescription) {
         this.personID = personID;
         this.personUsername = personUsername;
         this.personPassword = personPassword;
         this.email = email;
         this.picture = picture;
-        this.description = description;
+        this.personDescription = personDescription;
     }
 
     //Constructor containing all fields
-    public Person(int personID, String personUsername, String personPassword, String email, byte[] picture, String description, int permission) {
+    public Person(int personID, String personUsername, String personPassword, String email, byte[] picture, String personDescription, int permission) {
         this.personID = personID;
         this.personUsername = personUsername;
         this.personPassword = personPassword;
         this.email = email;
         this.picture = picture;
-        this.description = description;
+        this.personDescription = personDescription;
         this.permission = permission;
     }
 
@@ -82,12 +82,12 @@ public class Person {
         this.picture = picture;
     }
 
-    public String getDescription() {
-        return description;
+    public String getPersonDescription() {
+        return personDescription;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setPersonDescription(String personDescription) {
+        this.personDescription = personDescription;
     }
 
     public int getPermission() {
@@ -97,4 +97,10 @@ public class Person {
     public void setPermission(int permission) {
         this.permission = permission;
     }
+
+
 }
+
+
+
+
