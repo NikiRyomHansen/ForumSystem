@@ -6,7 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class AdminRepo implements PostAction {
+public class AdminPostRepo implements PostAction {
     @Autowired
     JdbcTemplate template;
 

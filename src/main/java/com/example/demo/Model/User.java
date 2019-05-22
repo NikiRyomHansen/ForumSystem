@@ -12,6 +12,4 @@ public class User extends Person {
 
         //Får error uden indkludering af permission-!
     }
-
-
 }

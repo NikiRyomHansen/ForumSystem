@@ -2,17 +2,17 @@ package com.example.demo.Service;
 
 import com.example.demo.Model.Person;
 import com.example.demo.Model.Post;
-import com.example.demo.Repository.AdminRepo;
+import com.example.demo.Repository.AdminPostRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AdminService {
+public class AdminPostService {
     @Autowired
-    AdminRepo adminRepo;
+    AdminPostRepo adminPostRepo;
 
     public Post createPost(Post post, Person person) {
-        return adminRepo.createPost(post, person);
+        return adminPostRepo.createPost(post, person);
     }
 
 }

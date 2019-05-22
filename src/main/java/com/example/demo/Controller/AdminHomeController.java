@@ -1,9 +1,8 @@
 package com.example.demo.Controller;
 
-import com.example.demo.Model.Admin;
 import com.example.demo.Model.Person;
 import com.example.demo.Model.Post;
-import com.example.demo.Repository.AdminRepo;
+import com.example.demo.Repository.AdminPostRepo;
 import com.example.demo.Service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,7 +18,7 @@ public class AdminHomeController {
     @Autowired
     PostService postService;
     @Autowired
-    AdminRepo adminRepo;
+    AdminPostRepo adminPostRepo;
 
     //Request a GetMapping to the front page showing all posts.
     @GetMapping("/")
@@ -38,7 +37,7 @@ public class AdminHomeController {
     //Request a PostMapping to create a new post
     @PostMapping("/index/createPost")
     public String createPost(@ModelAttribute Post post, @ModelAttribute Person person) {
-        adminRepo.createPost(post, person);
+        adminPostRepo.createPost(post, person);
         return "redirect:/";
     }
 

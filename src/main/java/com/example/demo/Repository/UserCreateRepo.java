@@ -13,11 +13,15 @@ public class UserCreateRepo {
 
     //Method to CreateUser
     public User CreateUser(User user){
-        String sql = "INSERT INTO person (personID, username, passwordPerson, email, picture, description)" +
+        String sql = "INSERT INTO person (username, passwordPerson, email)" +
                 "VALUES(?, ?, ?, ?, ?, ?)";
-        template.update(sql, user.getPersonID(), user.getUsername(), user.getPasswordPerson(), user.getEmail(),
-                user.getPicture(), user.getDescription());
+        template.update(sql, user.getUsername(), user.getPasswordPerson(), user.getEmail());
+        return null;
+    }
 
+    public User addAdditionalInfoToUser(User user) {
+        String sql = "INSERT INTO person (";
+        return null;
     }
 
 
