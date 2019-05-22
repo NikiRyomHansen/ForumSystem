@@ -17,7 +17,8 @@ VALUES ('Lars123', 'LarsPassword', 'LarsEmail@mail.com', null, null, 0),
 
 #Insert values into post table
 INSERT INTO post(personID, postDate, changedDate, headline, textField)
-VALUES(1 ,'2019-5-5 10:12:33', '2019-05-10 10:12:07', 'This just in!', 'ObamaCare shut down by Trump, boohoo');
+VALUES(1 ,'2019-5-5 10:12:33', '2019-05-10 10:12:07', 'This just in!', 'ObamaCare shut down by Trump, boohoo'),
+      (1, '2019-5-6 14:00:00', null, 'Another post', 'This is just a test, broh');
 
 #Insert values into post_views table
 INSERT INTO post_views(postID, personID, timestampViews)

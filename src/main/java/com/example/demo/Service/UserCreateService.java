@@ -11,6 +11,10 @@ import org.springframework.stereotype.Service;
 public class UserCreateService {
     @Autowired
     UserCreateRepo userCreateRepo;
+
+    public User login(User user) {
+        return userCreateRepo.login(user);
+    }
     
     public User createUserWindow(Person person){
         return userCreateRepo.createUserWindow(person);

@@ -21,8 +21,10 @@ public class UserActionController {
     @GetMapping("/")
     public String login(){
         return "userHome/loginPage";
-
     }
+
+    @GetMapping("/login/frontPage")
+
 
     @GetMapping("/createUserWindow")
     public String createUserWindow(){
