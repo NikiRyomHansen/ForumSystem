@@ -7,9 +7,9 @@ public class Admin extends Person {
 
     //Constructor containing all fields from Person super class
     //Setting permission to 1 to indicate that this Person is an Admin
-    public Admin(int personID, String username, String passwordPerson, String email,
+    public Admin(int personID, String personUsername, String personPassword, String email,
                  byte[] picture, String description) {
-        super(personID, username, passwordPerson, email, picture, description);
+        super(personID, personUsername, personPassword, email, picture, description);
         setPermission(1);
     }
 

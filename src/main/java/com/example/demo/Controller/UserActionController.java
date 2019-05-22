@@ -3,7 +3,6 @@ package com.example.demo.Controller;
 
 import com.example.demo.Model.User;
 import com.example.demo.Repository.UserCreateRepo;
-import com.example.demo.Service.UserCreateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,15 +23,15 @@ public class UserActionController {
 
     }
 
-    @GetMapping("/createUser")
+    @GetMapping("/createUserWindow")
     public String createUserWindow(){
-        return "userHome/createUser";
+        return "userHome/createUserWindow";
     }
 
-    @PostMapping("/createUserWindow")
-    public String createUser(@ModelAttribute User user) {
-        userCreateRepo.createUser(user);
-        return "userHome/loginPage";
+    @PostMapping("/loginPage/createUserWindow")
+    public String createUserWindow(@ModelAttribute User user) {
+        userCreateRepo.createUserWindow(user);
+        return "redirect:/";
 
     }
 
