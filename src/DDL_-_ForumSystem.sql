@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS person(
 	personID INT(10) NOT NULL AUTO_INCREMENT,
     personUsername VARCHAR(255) NOT NULL UNIQUE,
     personPassword VARCHAR(255) NOT NULL, #Der er en SQL kommando der hedder password, derfor hedder kolonnen passwordPerson
-    email VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
     picture BLOB,
     personDescription VARCHAR(10000), #Der er en SQL kommando der hedder description, derfor hedder kolonnen descriptionPerson
     permission INT(1) NOT NULL, #Muligvis ændre denne til INT(1) da der aldrig komme mere end ét cifrede permissions.
