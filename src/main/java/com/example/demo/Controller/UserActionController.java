@@ -33,10 +33,12 @@ public class UserActionController {
     public String createUser(@ModelAttribute User user){
        userCreateRepo.createUser(user);
        return "adminHome/to_be_done";
+    }
 
-
-    //Missing - @AdditionalUserInfoWindow
-
+    @PostMapping("addAdditionalUserInfo")
+    public String addAdditionalUserInfo(@ModelAttribute User user) {
+        userCreateRepo.addAdditionalInfoToUser(user);
+        return "redirect:/";
     }
 
 
