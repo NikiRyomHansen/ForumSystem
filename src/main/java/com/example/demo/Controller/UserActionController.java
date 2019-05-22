@@ -18,25 +18,26 @@ public class UserActionController {
     //Getmapping 'n' Postmapping TODO: ./login missing L22 , ./create missing L28 ./location after user has been created L34
     //TODO: @AdditionalUserinfoWindow - Unsure how to do this one-?
 
-    @GetMapping("/login")
+    @GetMapping("/")
     public String login(){
-        return "adminHome/login";
+        return "userHome/loginPage";
 
     }
 
-    @GetMapping("/createUserWindow")
+    @GetMapping("/createUser")
     public String createUserWindow(){
-        return "adminHome/create";
+        return "userHome/createUser";
     }
 
-    @PostMapping("createUserWindow")
-    public String createUser(@ModelAttribute User user){
-       userCreateRepo.createUser(user);
-       return "adminHome/to_be_done";
+    @PostMapping("/createUserWindow")
+    public String createUser(@ModelAttribute User user) {
+        userCreateRepo.createUser(user);
+        return "userHome/loginPage";
+
     }
 
     //Request a PostMapping to add additional user info
-    @PostMapping("addAdditionalUserInfo")
+    @PostMapping("/addAdditionalUserInfo")
     public String addAdditionalUserInfo(@ModelAttribute User user) {
         userCreateRepo.addAdditionalInfoToUser(user);
         return "redirect:/";

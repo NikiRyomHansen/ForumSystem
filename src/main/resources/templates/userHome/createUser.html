@@ -2,9 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Creating new user</title>
 </head>
 <body>
+
+    <h1>New user creation</h1>
+
+    <form action="/createUser" method="post">
+        <label>Username: </label>
+        <input type="text" name="username"/>
+        <label>Password: </label>
+        <input type="text" name="passwordPerson"/>
+        <label>Repeat password: </label>
+        <input type="text" name="passwordPerson"/>
+        <label>E-mail: </label>
+        <input type="text" name="email"/>
+
+        <input style="color: black" type="submit" value="Confirm"/>
+        <input style="color: red" type="submit" value="Cancel"/>
+
+
+    </form>
 
 </body>
 </html>
