@@ -9,7 +9,7 @@ USE forum_system;
 #Create user table
 CREATE TABLE IF NOT EXISTS person(
 	personID INT(10) NOT NULL AUTO_INCREMENT,
-    personUsername VARCHAR(255) NOT NULL,
+    personUsername VARCHAR(255) NOT NULL UNIQUE,
     personPassword VARCHAR(255) NOT NULL, #Der er en SQL kommando der hedder password, derfor hedder kolonnen passwordPerson
     email VARCHAR(255) NOT NULL,
     picture BLOB,
