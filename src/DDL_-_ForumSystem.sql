@@ -24,8 +24,8 @@ CREATE TABLE IF NOT EXISTS post(
     personID INT(10) NOT NULL,
     postDate TIMESTAMP NOT NULL,
     changedDate TIMESTAMP,
-    headline VARCHAR(255),
-    textField VARCHAR(10000), #SQL kommando som hedder text, derfor bruges textField.
+    headline VARCHAR(255) NOT NULL,
+    textField VARCHAR(10000) NOT NULL, #SQL kommando som hedder text, derfor bruges textField.
     PRIMARY KEY (postID),
     FOREIGN KEY (personID) REFERENCES person(personID)
 );
@@ -33,9 +33,9 @@ CREATE TABLE IF NOT EXISTS post(
 #Create views table
 CREATE TABLE IF NOT EXISTS post_views(
 	viewsID INT(10) NOT NULL AUTO_INCREMENT,
-    postID INT(10),
-    personID INT(10),
-    timestampViews TIMESTAMP,
+    postID INT(10) NOT NULL,
+    personID INT(10) NOT NULL,
+    timestampViews TIMESTAMP NOT NULL,
     PRIMARY KEY (viewsID),
     FOREIGN KEY (postID) REFERENCES post(postID),
     FOREIGN KEY (personID) REFERENCES person(personID)
@@ -44,9 +44,9 @@ CREATE TABLE IF NOT EXISTS post_views(
 #Create likes table
 CREATE TABLE IF NOT EXISTS likes(
 	likesID INT(10) NOT NULL AUTO_INCREMENT,
-    postID INT(10),
-    personID INT(10),
-    timestampLikes TIMESTAMP,
+    postID INT(10) NOT NULL,
+    personID INT(10) NOT NULL,
+    timestampLikes TIMESTAMP NOT NULL,
     PRIMARY KEY (likesID),
     FOREIGN KEY (personID) REFERENCES person(personID),
     FOREIGN KEY (postID) REFERENCES post(postID)
@@ -55,10 +55,10 @@ CREATE TABLE IF NOT EXISTS likes(
 #Create dislikes table
 CREATE TABLE IF NOT EXISTS dislikes(
 	dislikeID INT(10) NOT NULL AUTO_INCREMENT,
-    postID INT(10),
-    personID INT(10),
-    timestampDislikes timestamp,
-    dislikeMessage VARCHAR(255),
+    postID INT(10) NOT NULL,
+    personID INT(10) NOT NULL,
+    timestampDislikes timestamp NOT NULL,
+    dislikeMessage VARCHAR(255) NOT NULL,
     PRIMARY KEY (dislikeID),
     FOREIGN KEY (postID) REFERENCES post(postID),
     FOREIGN KEY (personID) REFERENCES person(personID)
@@ -68,12 +68,18 @@ CREATE TABLE IF NOT EXISTS dislikes(
 CREATE TABLE IF NOT EXISTS comments(
 	commentID INT(10) NOT NULL AUTO_INCREMENT,
     personID INT(10) NOT NULL,
-    commentText VARCHAR(10000),
+    commentText VARCHAR(10000) NOT NULL,
     PRIMARY KEY (commentID),
     FOREIGN KEY (personID) REFERENCES person(personID)
 );
 
 #Create respect_points table
+CREATE TABLE IF NOT EXISTS respect_points(
+    respectID INT(10) NOT NULL AUTO_INCREMENT,
+    toUserID INT(10) NOT NULL AUTO_INCREMENT,
+    fromUserID INT(10) NOT NULL AUTO_INCREMENT,
+    timestampRespectPoints timestamp NOT NULL
+);
 
 #Create groups table
 
