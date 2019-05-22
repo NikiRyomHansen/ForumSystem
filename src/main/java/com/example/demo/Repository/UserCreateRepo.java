@@ -15,11 +15,14 @@ public class UserCreateRepo {
     JdbcTemplate template;
 
     //Method to CreateUser
-    public User createUserWindow(Person person){
+    public User createUserWindow(Person person) {
         String sql = "INSERT INTO person (personUsername, personPassword, email, permission)" +
                 "VALUES(?, ?, ?, ?)";
         template.update(sql, person.getPersonUsername(), person.getPersonPassword(),
                 person.getEmail(), person.getPermission());
+
+    }
+
     //method to login - Niki, Khoi
     public User login(User user) {
         String sql = "SELECT * FROM person " +
@@ -27,14 +30,6 @@ public class UserCreateRepo {
                 "     AND password = ?";
         RowMapper<User> rowMapper = new BeanPropertyRowMapper<>(User.class);
         return template.queryForObject(sql, rowMapper);
-    }
-
-    //Method to CreateUser - Niki, Khoi
-    public User createUser(User user){
-        String sql = "INSERT INTO person (username, passwordPerson, email)" +
-                "VALUES(?, ?, ?, ?, ?, ?)";
-        template.update(sql, user.getUsername(), user.getPasswordPerson(), user.getEmail());
-        return null;
     }
 
     //Method to insert picture and description to additional profile info page - Niki
