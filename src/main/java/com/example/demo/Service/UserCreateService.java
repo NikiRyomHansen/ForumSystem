@@ -16,13 +16,9 @@ public class UserCreateService {
         return userCreateRepo.login(person);
     }
     
-    public User createUserWindow(Person person){
+    public Person createUserWindow(Person person){
         return userCreateRepo.createUserWindow(person);
 
-    }
-
-    public User addAdditionalInfoToUser(User user) {
-        return userCreateRepo.addAdditionalInfoToUser(user);
     }
 
 }

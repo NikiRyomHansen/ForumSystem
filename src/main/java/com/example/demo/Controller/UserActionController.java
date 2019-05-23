@@ -34,15 +34,7 @@ public class UserActionController {
     @PostMapping("/createUserWindow")
     public String createUserWindow(@ModelAttribute Person person) {
         userCreateService.createUserWindow(person);
-        return "redirect:/";
-
-    }
-
-    //Request a PostMapping to add additional user info
-    @PostMapping("/addAdditionalUserInfo")
-    public String addAdditionalUserInfo(@ModelAttribute User user) {
-        userCreateService.addAdditionalInfoToUser(user);
-        return "redirect:/";
+        return "adminHome/frontPage";
     }
 
     //Returns the frontpage, when the button is pressed

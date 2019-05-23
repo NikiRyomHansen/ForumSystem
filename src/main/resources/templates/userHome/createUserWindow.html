@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Creating new user</title>
@@ -16,6 +16,10 @@
         <input type="text" name="personPassword"/>
         <label>E-mail: </label>
         <input type="text" name="email"/>
+        <label>Profile picture (Optional)</label>
+        <input type="file" name="picture" accept="image/*">
+        <label>Profile description (Optional)</label>
+        <textarea rows="6" cols="50" type="text" name="personDescription"></textarea>
 
         <input style="color: black" type="submit" value="Confirm"/>
         <input style="color: red" type="submit" value="Cancel"/>
