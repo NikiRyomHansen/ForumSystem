@@ -23,10 +23,10 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="group: ${group}">
-                <td th:text="${forum_group.groupID}"/>
-                <td th:text="${Group.groupName}"/>
-                <td th:text="${Group.groupDescription}"/>
+            <tr th:each="forum_groups: ${Groups}">
+                <td th:text="${forum_groups.groupID}"/>
+                <td th:text="${forum_groups.groupName}"/>
+                <td th:text="${forum_groups.groupDescription}"/>
             </tr>
         </tbody>
     </table>

@@ -20,6 +20,8 @@ import java.util.List;
 public class UserActionController {
     @Autowired
     UserCreateService userCreateService;
+    @Autowired
+    GroupService groupService;
 
     //Getmapping 'n' Postmapping TODO: ./login missing L22 , ./create missing L28 ./location after user has been created L34
     //TODO: @AdditionalUserinfoWindow - Unsure how to do this one-?
@@ -52,8 +54,8 @@ public class UserActionController {
     //Takes the user to the groups page
     @GetMapping("/groups")
     public String goToGroups(Model model) {
-        List<Group> groupList = GroupService.
-        model.addAttribute("Groups", )
+        List<Group> groupList = groupService.fetchAllGroups();
+        model.addAttribute("Groups", groupList);
         return "userHome/groups";
     }
 
