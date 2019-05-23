@@ -7,6 +7,7 @@ SELECT * FROM post_views;
 SELECT * FROM likes;
 SELECT * FROM dislikes;
 SELECT * FROM comments;
+SELECT * FROM forum_groups;
 
 USE forum_system;
 

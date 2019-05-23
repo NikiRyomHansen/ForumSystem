@@ -23,9 +23,6 @@ public class UserActionController {
     @Autowired
     GroupService groupService;
 
-    //Getmapping 'n' Postmapping TODO: ./login missing L22 , ./create missing L28 ./location after user has been created L34
-    //TODO: @AdditionalUserinfoWindow - Unsure how to do this one-?
-
     @GetMapping("/")
     public String login(){
         return "userHome/loginPage";

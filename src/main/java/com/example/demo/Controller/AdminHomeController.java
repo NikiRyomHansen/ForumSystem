@@ -54,5 +54,10 @@ public class AdminHomeController {
         return "adminHome/viewListOfPerson";
     }
 
+    @GetMapping("/viewOnePerson/{personID}")
+    public String viewOnePerson(@PathVariable("personID") int personID, Model model) {
+        model.addAttribute("person", userViewService.viewOnePerson(personID));
+        return "adminHome/viewOnePerson";
+    }
 
 }

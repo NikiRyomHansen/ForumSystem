@@ -15,7 +15,7 @@ public class Person {
     private String email;
     private byte[] picture;
     private String personDescription;
-    private int permission;
+    private int permission; //TODO: Possibly add an if(permission==0) then user if 1 then admin. At least show as in html code
 
     //Empty Constructor
     public Person() {
