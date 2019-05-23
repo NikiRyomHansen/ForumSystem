@@ -1,14 +1,20 @@
 package com.example.demo.Controller;
 
 
+import com.example.demo.Model.Group;
 import com.example.demo.Model.Person;
 import com.example.demo.Model.User;
+import com.example.demo.Repository.GroupRepo;
+import com.example.demo.Service.GroupService;
 import com.example.demo.Service.UserCreateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 @Controller
 public class UserActionController {
@@ -41,6 +47,14 @@ public class UserActionController {
     @GetMapping("/userFrontPage")
     public String goToFrontPage() {
         return "userHome/userFrontPage";
+    }
+
+    //Takes the user to the groups page
+    @GetMapping("/groups")
+    public String goToGroups(Model model) {
+        List<Group> groupList = GroupService.
+        model.addAttribute("Groups", )
+        return "userHome/groups";
     }
 
 }
