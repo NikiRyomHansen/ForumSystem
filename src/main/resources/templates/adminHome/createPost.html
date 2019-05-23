@@ -15,27 +15,23 @@
 <div>
     <h1>Create a new post</h1>
 
-    <table>
-        <tbody>
-            <form action="/index/createPost" method="post">
-                <tr>
-                    <td>Person ID (Change later)</td>
-                    <td><input type="text" name="personID"></td>
-                </tr>
-                <tr>
-                    <td><label>Title</label></td>
-                    <td><input type="text" name="headline"></td>
-                </tr>
-                <tr>
-                    <td id="tdLabelPostInputTextField"><label>Post text</label></td>
-                    <td id="tdInputPostInputTextField"><input type="text" id="postInputTextField" name="textField"></td>
-                </tr>
 
-                <input type="submit" id="btn-createPostSubmit" value="Create post">
+        <form action="/index/createPost" method="post">
 
-            </form>
-        </tbody>
-    </table>
+            <label>Person ID (Change later)</label>
+            <input type="text" name="personID">
+            <br>
+            <b><label>Title</label></b>
+            <input type="text" name="headline">
+            <br>
+            <b><label>Post text</label></b>
+            <input type="text" id="postInputTextField" name="textField">
+
+
+            <input type="submit" id="btn-createPostSubmit" value="Create post">
+
+        </form>
+
 
 </div>
 
