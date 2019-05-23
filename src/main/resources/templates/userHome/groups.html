@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="generalStyle.css">
 </head>
 <body>
 
@@ -10,9 +11,25 @@
 
     </header>
 
-    <p>.</p>
-    <p>.</p>
-    <h1>Welcome to the groups page</h1>
+    <h1>Group details</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Group ID</th>
+                <th>Group Name</th>
+                <th>Group Description</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="Group: ${group}">
+                <td th:text="${group.groupID}"/>
+                <td th:text="${group.groupName}"/>
+                <td th:text="${group.groupDescription}"/>
+            </tr>
+        </tbody>
+    </table>
 
 </body>
 </html>
