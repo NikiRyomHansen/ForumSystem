@@ -24,17 +24,17 @@ public class UserCreateRepo {
 
     }
 
-    //method to login - Niki, Khoi
-    public User login(User user) {
+    public Person login(Person person) {
         String sql = "SELECT * FROM person " +
-                "     WHERE username = ?" +
-                "     AND password = ?";
-        RowMapper<User> rowMapper = new BeanPropertyRowMapper<>(User.class);
+                "WHERE personUsername = ?" +
+                "AND personPassword = ?";
+        RowMapper<Person> rowMapper = new BeanPropertyRowMapper<>(Person.class);
         return template.queryForObject(sql, rowMapper);
         // If there is something in the result set, proceed to login
 
         // Else if there is nothing in the result set, return error.
     }
+
 
     //Method to CreateUser - Niki, Khoi
     public User createUser(User user){

@@ -45,4 +45,10 @@ public class UserActionController {
         return "redirect:/";
     }
 
+    //Returns the frontpage, when the button is pressed
+    @GetMapping("/userFrontPage")
+    public String goToFrontPage() {
+        return "userHome/userFrontPage";
+    }
+
 }
