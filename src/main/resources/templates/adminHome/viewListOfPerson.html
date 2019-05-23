@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Users</title>
+    <link rel="stylesheet" type="text/css" href="adminHomeCSS.css">
+    <link rel="stylesheet" type="text/css" href="generalStyle.css">
+</head>
+<body>
+
+<header th:replace="navigation/headNavigation" :: header>
+
+</header>
+
+    <h1>List of users</h1>
+
+    <table id="myTable">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>E-mail</th>
+                <th>Picture</th>
+                <th>Profile Description</th>
+                <th>User Permission</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="person: ${personList}">
+                <td th:text="${person.personUsername}" />
+                <td th:text="${person.email}" />
+                <td th:text="${person.picture}" />
+                <td th:text="${person.personDescription}" />
+                <td th:text="${person.permission}" />
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

@@ -14,7 +14,7 @@ public class UserCreateRepo {
     @Autowired
     JdbcTemplate template;
 
-    //Method to CreateUser
+    //Method to CreateUser - Khoi, Niki
     public Person createUserWindow(Person person) {
         String sql = "INSERT INTO person (personUsername, personPassword, email, picture, personDescription, " +
                 "permission)" +
