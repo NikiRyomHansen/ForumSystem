@@ -8,6 +8,7 @@ import com.example.demo.Service.GroupService;
 import com.example.demo.Service.PostService;
 import com.example.demo.Service.UserCreateService;
 import com.example.demo.Service.UserViewService;
+import com.example.demo.Service.UserViewService;
 import com.example.demo.Service.UserMessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,11 +27,11 @@ public class UserActionController {
     @Autowired
     GroupService groupService;
     @Autowired
+    UserViewService userViewService;
+    @Autowired
     PostService postService;
     @Autowired
     UserMessageService userMessageService;
-    @Autowired
-    UserViewService userViewService;
 
     @GetMapping("/")
     public String login(Model model){
