@@ -1,5 +1,6 @@
 package com.example.demo.Service;
 
+import com.example.demo.Model.Comments;
 import com.example.demo.Model.Post;
 import com.example.demo.Repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,5 +16,8 @@ public class PostService {
     public List<Post> fetchAll() {
         return postRepository.fetchAll();
     }
+
+    // Method to return all comments on a post
+    public List<Comments> fetchAllCommentsOnPost(int id) {return postRepository.fetchAllCommentsOnPost(id);}
 }
 

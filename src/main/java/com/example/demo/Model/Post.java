@@ -14,6 +14,8 @@ public class Post {
     java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     private int postID;
+    private int belongsToGroup;
+    private int personID;
     private String postDate = sdf.format(dt);
     private String changedDate = sdf.format(dt);
     private String headline;
@@ -47,6 +49,22 @@ public class Post {
 
     public void setPostID(int postID) {
         this.postID = postID;
+    }
+
+    public int getBelongsToGroup() {
+        return belongsToGroup;
+    }
+
+    public void setBelongsToGroup(int belongsToGroup) {
+        this.belongsToGroup = belongsToGroup;
+    }
+
+    public int getPersonID() {
+        return personID;
+    }
+
+    public void setPersonID(int personID) {
+        this.personID = personID;
     }
 
     public String getPostDate() {

@@ -10,6 +10,8 @@ public class Comments {
     @Id
     //fields
     private int commentID;
+    private int personID;
+    private int belongsToPost;
     private String commentText;
     private List<Likes> commentLikes;
     private List<Dislikes> commentdislikes;
@@ -20,8 +22,10 @@ public class Comments {
     }
 
     //Constructor containing all fields
-    public Comments(int commentID, String commentText, List<Likes> commentLikes, List<Dislikes> commentdislikes, Person person) {
+    public Comments(int commentID, int personID, int belongsToPost, String commentText, List<Likes> commentLikes, List<Dislikes> commentdislikes, Person person) {
         this.commentID = commentID;
+        this.personID = personID;
+        this.belongsToPost = belongsToPost;
         this.commentText = commentText;
         this.commentLikes = commentLikes;
         this.commentdislikes = commentdislikes;
@@ -34,6 +38,22 @@ public class Comments {
 
     public void setCommentID(int commentID) {
         this.commentID = commentID;
+    }
+
+    public int getPersonID() {
+        return personID;
+    }
+
+    public void setPersonID(int personID) {
+        this.personID = personID;
+    }
+
+    public int getBelongsToPost() {
+        return belongsToPost;
+    }
+
+    public void setBelongsToPost(int belongsToPost) {
+        this.belongsToPost = belongsToPost;
     }
 
     public String getCommentText() {
