@@ -14,7 +14,7 @@ public class PrivateMessage {
     java.util.Date dt = new java.util.Date();
     java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-    private int privateMessage;
+    private int privateMessageID;
     private int toUserID;
     private int fromUserID;
     private String headline;
@@ -27,8 +27,8 @@ public class PrivateMessage {
     }
 
     // constructor
-    public PrivateMessage(int privateMessage, int toUserID, int fromUserID, String headline, String message, String timestampPrivateMessage, boolean isRead) {
-        this.privateMessage = privateMessage;
+    public PrivateMessage(int privateMessageID, int toUserID, int fromUserID, String headline, String message, String timestampPrivateMessage, boolean isRead) {
+        this.privateMessageID = privateMessageID;
         this.toUserID = toUserID;
         this.fromUserID = fromUserID;
         this.headline = headline;
@@ -39,12 +39,12 @@ public class PrivateMessage {
 
 
     // Setters and getter for privatemessage
-    public int getPrivateMessage() {
-        return privateMessage;
+    public int getPrivateMessageID() {
+        return privateMessageID;
     }
 
-    public void setPrivateMessage(int privateMessage) {
-        this.privateMessage = privateMessage;
+    public void setPrivateMessageID(int privateMessageID) {
+        this.privateMessageID = privateMessageID;
     }
 
     public int getToUserID() {

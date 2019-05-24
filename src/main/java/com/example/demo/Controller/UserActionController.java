@@ -3,8 +3,6 @@ package com.example.demo.Controller;
 
 import com.example.demo.Model.Group;
 import com.example.demo.Model.Person;
-import com.example.demo.Model.User;
-import com.example.demo.Repository.GroupRepo;
 import com.example.demo.Service.GroupService;
 import com.example.demo.Service.UserCreateService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,4 +54,11 @@ public class UserActionController {
         return "userHome/groups";
     }
 
+
+    // Return the messages page
+    @GetMapping("/messagePage")
+    public String goToMessagePage (){
+
+        return "userHome/messagePage";
+    }
 }

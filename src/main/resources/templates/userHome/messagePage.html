@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<header th:replace="navigation/headNavigation" :: header>
+
+</header>
+
+    <table>
+        <thead>
+            <tr>
+                <td>From</td>
+                <td>Headline</td>
+                <td>Date</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="private_messages: ${messageList}}" th:each="fromPerson: ${fromPerson}">
+                <td></td>
+                <td th:text="${private_messages.headline}"></td>
+                <td th:text="${private_messages.timestampPrivateMessage}"></td>
+
+
+            </tr>
+
+
+
+        </tbody>
+
+
+
+
+    </table>
+
+</body>
+</html>
