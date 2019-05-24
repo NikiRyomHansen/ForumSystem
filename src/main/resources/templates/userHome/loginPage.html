@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Login Page</title>
@@ -24,15 +24,42 @@
         <button class="btn-goToFrontpage btn" id="btn-goToFrontpage">Go to user frontpage</button>
     </a>
 
+    <!--<a th:href="@{'/viewPersonIDOne/'+${person.personID}}">
+        <button class="btn-viewPersonIDOne btn" id="btn-viewPersonIDOne">Profile</button>
+    </a>-->
+
     <a href="/frontPage">
         <button class="btn-frontPage btn" id="btn-frontPage">Go to Admin frontpage</button>
     </a>
 
+    <h1>List of users</h1>
 
-
-
-
-
+    <table>
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>E-mail</th>
+            <th>Picture</th>
+            <th>Profile Description</th>
+            <th>User Permission</th>
+            <th>Options</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="person: ${personList}">
+            <td th:text="${person.personUsername}" />
+            <td th:text="${person.email}" />
+            <td th:text="${person.picture}" />
+            <td th:text="${person.personDescription}" />
+            <td th:text="${person.permission}" />
+            <td>
+                <a th:href="@{'/userFrontPage/'+${person.personID}}">
+                    <button class="btn-userFrontPage btn" id="btn-userFrontPage">View this user</button>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 
 </body>
 </html>

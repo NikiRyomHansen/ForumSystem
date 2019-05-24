@@ -6,12 +6,14 @@ import com.example.demo.Model.Person;
 import com.example.demo.Model.PrivateMessage;
 import com.example.demo.Service.GroupService;
 import com.example.demo.Service.UserCreateService;
+import com.example.demo.Service.UserViewService;
 import com.example.demo.Service.UserMessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -24,13 +26,21 @@ public class UserActionController {
     GroupService groupService;
     @Autowired
     UserMessageService userMessageService;
+    @Autowired
+    UserViewService userViewService;
 
     @GetMapping("/")
-    public String login(){
+    public String login(Model model){
+        List<Person> personList = userViewService.viewListOfPerson();
+        model.addAttribute("personList", personList);
         return "userHome/loginPage";
     }
 
-    //@GetMapping("/login/frontPage")
+    @GetMapping("/userFrontPage/{personID}")
+    public String goToUserFrontPage(@PathVariable("personID") int personID, Model model) {
+        model.addAttribute("person", userViewService.viewOnePerson(personID));
+        return "userHome/userFrontPage";
+    }
 
 
     @GetMapping("/createUserWindow")

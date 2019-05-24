@@ -20,4 +20,7 @@ public class UserViewService {
         return userViewRepo.viewListOfPerson();
     }
 
+    public Person viewPersonIDOne(int personID) {
+        return userViewRepo.viewPersonIDOne(personID);
+    }
 }

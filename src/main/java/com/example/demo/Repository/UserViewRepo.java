@@ -29,4 +29,14 @@ public class UserViewRepo {
         return template.query(sql, rowMapper);
     }
 
+
+    // This is not currently implemented in the controller
+    //Method to view one personUsername from the person table
+    public Person viewPersonIDOne(int personID) {
+        String sql = "SELECT * FROM person WHERE personID = 1";
+        RowMapper<Person> rowMapper = new BeanPropertyRowMapper<>(Person.class);
+        Person person = template.queryForObject(sql, rowMapper, personID);
+        return person;
+    }
+
 }

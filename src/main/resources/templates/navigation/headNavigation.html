@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -30,9 +30,10 @@
     <nav id=sidenav>
         <ul>
             <li>
-                <a href="/viewUserProfile">
-                    <button class="btn-viewUserProfile" id="btn-viewUserProfile">Profile</button>
-            </a></li>
+                <a th:href="@{'/viewOnePerson/'+${person.personID}}">
+                    <button class="btn-viewOnePerson btn" id="btn-viewOnePerson">Profile</button>
+                </a>
+            </li>
             <li><a>picture</a></li>
             <li><a>respect</a></li>
             <li><a>rating</a></li>

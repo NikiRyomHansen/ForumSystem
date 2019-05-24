@@ -24,7 +24,7 @@ public class AdminHomeController {
     @Autowired
     UserViewService userViewService;
 
-    //Request a GetMapping to the front page showing all posts.
+    //Request a GetMapping to the front page showing all posts. - Niki
     @GetMapping("/frontPage")
     public String frontPage(Model model) {
         List<Post> postList = postService.fetchAll();
@@ -32,7 +32,7 @@ public class AdminHomeController {
         return "adminHome/frontPage";
     }
 
-    //Request a GetMapping to redirect to a new html file to create a new post
+    //Request a GetMapping to redirect to a new html file to create a new post - Niki
     @GetMapping("/createPost")
     public String createPost() {
         return "adminHome/createPost";
@@ -46,7 +46,7 @@ public class AdminHomeController {
         return "redirect:/";
     }
 
-    //Send a Get request to show all users in a list.
+    //Send a Get request to show all users in a list. - Niki
     @GetMapping("/viewListOfPerson")
     public String viewListOfPerson(Model model) {
         List<Person> personList = userViewService.viewListOfPerson();
@@ -54,6 +54,7 @@ public class AdminHomeController {
         return "adminHome/viewListOfPerson";
     }
 
+    //Send a Get request to view one person from the person table by personID - Niki
     @GetMapping("/viewOnePerson/{personID}")
     public String viewOnePerson(@PathVariable("personID") int personID, Model model) {
         model.addAttribute("person", userViewService.viewOnePerson(personID));
