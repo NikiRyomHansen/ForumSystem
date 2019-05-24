@@ -16,19 +16,23 @@ public class UserMessageRepo {
     @Autowired
     JdbcTemplate template;
 
-    //Method to get all private messages
-    public List<PrivateMessage> getALlPrivateMessages(){
-        String sql = "SELECT * FROM private_messages";
+    //Method to get all private messages and senders name
+    public List<PrivateMessage> getAllPrivateMessages(){
+        String sql = "SELECT person.personUsername, fromUserID, headline,\n" +
+                "\ttimestampPrivateMessage FROM private_messages\n" +
+                "\tFULL JOIN  person ON  fromUserID = personID  \n" +
+                "    WHERE toUserID = 1\n" +
+                "\tORDER BY timestampPrivateMessage";
         RowMapper<PrivateMessage> rowMapper = new BeanPropertyRowMapper<>(PrivateMessage.class);
-
-        return template.query(sql, rowMapper);
+        List<PrivateMessage> privateMessagesList = template.query(sql, rowMapper);
+        return privateMessagesList;
     }
 
     // Method to read a message
     public PrivateMessage readPrivateMessage(int privateMessageID, Person person){
         String sql = "SELECT * FROM private_message WHERE privateMessageID = ?";
         RowMapper<PrivateMessage> rowMapper = new BeanPropertyRowMapper<>(PrivateMessage.class);
-        // makes the message readed
+        // makes the message read
         PrivateMessage privateMessage = template.queryForObject(sql, rowMapper, privateMessageID);
         sql = "UPDATE privateMessage SET isRead = 1 WHERE privateMessageID = ?";
         template.update(sql, person.getPersonID());

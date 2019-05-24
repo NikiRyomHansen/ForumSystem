@@ -3,8 +3,10 @@ package com.example.demo.Controller;
 
 import com.example.demo.Model.Group;
 import com.example.demo.Model.Person;
+import com.example.demo.Model.PrivateMessage;
 import com.example.demo.Service.GroupService;
 import com.example.demo.Service.UserCreateService;
+import com.example.demo.Service.UserMessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +22,8 @@ public class UserActionController {
     UserCreateService userCreateService;
     @Autowired
     GroupService groupService;
+    @Autowired
+    UserMessageService userMessageService;
 
     @GetMapping("/")
     public String login(){
@@ -57,7 +61,9 @@ public class UserActionController {
 
     // Return the messages page
     @GetMapping("/messagePage")
-    public String goToMessagePage (){
+    public String goToMessagePage (Model model){
+        List<PrivateMessage> privateMessage = userMessageService.getAllPrivateMessages();
+        model.addAttribute("privateMessage", privateMessage);
 
         return "userHome/messagePage";
     }

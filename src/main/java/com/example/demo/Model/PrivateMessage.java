@@ -10,8 +10,8 @@ public class PrivateMessage {
 
     @Id
     //fields
-    // formatting for Date
-    java.util.Date dt = new java.util.Date();
+            // formatting for Date
+            java.util.Date dt = new java.util.Date();
     java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     private int privateMessageID;
@@ -22,12 +22,20 @@ public class PrivateMessage {
     private String timestampPrivateMessage = sdf.format(dt);
     private boolean isRead;
 
+    private int personID;
+    private String personUsername;
+    private String personPassword;
+    private String email;
+    private byte[] picture;
+    private String personDescription;
+    private int permission;
+
     //default constructor
     public PrivateMessage() {
     }
 
     // constructor
-    public PrivateMessage(int privateMessageID, int toUserID, int fromUserID, String headline, String message, String timestampPrivateMessage, boolean isRead) {
+    public PrivateMessage(int privateMessageID, int toUserID, int fromUserID, String headline, String message, String timestampPrivateMessage, boolean isRead, String personUsername) {
         this.privateMessageID = privateMessageID;
         this.toUserID = toUserID;
         this.fromUserID = fromUserID;
@@ -37,8 +45,27 @@ public class PrivateMessage {
         this.isRead = isRead;
     }
 
+    // Constructor for the Full Join
+    public PrivateMessage(int privateMessageID, int toUserID, int fromUserID, String headline, String message, String timestampPrivateMessage, boolean isRead, int personID, String personUsername, String personPassword, String email, byte[] picture, String personDescription, int permission) {
+        this.privateMessageID = privateMessageID;
+        this.toUserID = toUserID;
+        this.fromUserID = fromUserID;
+        this.headline = headline;
+        this.message = message;
+        this.timestampPrivateMessage = timestampPrivateMessage;
+        this.isRead = isRead;
+        this.personID = personID;
+        this.personUsername = personUsername;
+        this.personPassword = personPassword;
+        this.email = email;
+        this.picture = picture;
+        this.personDescription = personDescription;
+        this.permission = permission;
+    }
 
     // Setters and getter for privatemessage
+
+
     public int getPrivateMessageID() {
         return privateMessageID;
     }
@@ -93,5 +120,61 @@ public class PrivateMessage {
 
     public void setRead(boolean read) {
         isRead = read;
+    }
+
+    public int getPersonID() {
+        return personID;
+    }
+
+    public void setPersonID(int personID) {
+        this.personID = personID;
+    }
+
+    public String getPersonUsername() {
+        return personUsername;
+    }
+
+    public void setPersonUsername(String personUsername) {
+        this.personUsername = personUsername;
+    }
+
+    public String getPersonPassword() {
+        return personPassword;
+    }
+
+    public void setPersonPassword(String personPassword) {
+        this.personPassword = personPassword;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public byte[] getPicture() {
+        return picture;
+    }
+
+    public void setPicture(byte[] picture) {
+        this.picture = picture;
+    }
+
+    public String getPersonDescription() {
+        return personDescription;
+    }
+
+    public void setPersonDescription(String personDescription) {
+        this.personDescription = personDescription;
+    }
+
+    public int getPermission() {
+        return permission;
+    }
+
+    public void setPermission(int permission) {
+        this.permission = permission;
     }
 }

@@ -19,10 +19,10 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="private_messages: ${messageList}}" th:each="fromPerson: ${fromPerson}">
-                <td></td>
-                <td th:text="${private_messages.headline}"></td>
-                <td th:text="${private_messages.timestampPrivateMessage}"></td>
+            <tr th:each="privateMessage: ${privateMessage}">
+                <td th:text="${privateMessage.personUsername}"></td>
+                <td th:text="${privateMessage.headline}"></td>
+                <td th:text="${privateMessage.timestampPrivateMessage}"></td>
 
 
             </tr>
