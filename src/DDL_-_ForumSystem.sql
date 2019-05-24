@@ -18,16 +18,38 @@ CREATE TABLE IF NOT EXISTS person(
     PRIMARY KEY (personID)
 );
 
+#Create groups table (Rasmus)
+CREATE TABLE IF NOT EXISTS forum_groups(
+    groupID INT(10) NOT NULL AUTO_INCREMENT,
+    groupName VARCHAR(255) NOT NULL,
+    groupDescription VARCHAR(10000) NOT NULL,
+    PRIMARY KEY (groupID)
+);
+
+#Create group_members table (Rasmus)
+CREATE TABLE IF NOT EXISTS group_members(
+    groupMemberID INT(10) NOT NULL AUTO_INCREMENT,
+    groupID INT(10) NOT NULL,
+    userID INT(10) NOT NULL,
+    permission INT(1) NOT NULL,
+    memberSince TIMESTAMP NOT NULL,
+    PRIMARY KEY (groupMemberID),
+    FOREIGN KEY (groupID) REFERENCES forum_groups(groupID),
+    FOREIGN KEY (userID) REFERENCES person(personID)
+);
+
 #Create post table
 CREATE TABLE IF NOT EXISTS post(
 	postID INT(10) NOT NULL AUTO_INCREMENT,
+	belongsToGroup int(10) NOT NULL,
     personID INT(10) NOT NULL,
     postDate TIMESTAMP NOT NULL,
     changedDate TIMESTAMP,
     headline VARCHAR(255) NOT NULL,
     textField VARCHAR(10000) NOT NULL, #SQL kommando som hedder text, derfor bruges textField.
     PRIMARY KEY (postID),
-    FOREIGN KEY (personID) REFERENCES person(personID)
+    FOREIGN KEY (personID) REFERENCES person(personID),
+    FOREIGN KEY (belongsToGroup) REFERENCES forum_groups(groupID)
 );
 
 #Create views table
@@ -82,26 +104,6 @@ CREATE TABLE IF NOT EXISTS respect_points(
     PRIMARY KEY (respectID),
     FOREIGN KEY (toUserID) REFERENCES person(personID),
     FOREIGN KEY (fromUserID) REFERENCES person(personID)
-);
-
-#Create groups table (Rasmus)
-CREATE TABLE IF NOT EXISTS forum_groups(
-    groupID INT(10) NOT NULL AUTO_INCREMENT,
-    groupName VARCHAR(255) NOT NULL,
-    groupDescription VARCHAR(10000) NOT NULL,
-    PRIMARY KEY (groupID)
-);
-
-#Create group_members table (Rasmus)
-CREATE TABLE IF NOT EXISTS group_members(
-    groupMemberID INT(10) NOT NULL AUTO_INCREMENT,
-    groupID INT(10) NOT NULL,
-    userID INT(10) NOT NULL,
-    permission INT(1) NOT NULL,
-    memberSince TIMESTAMP NOT NULL,
-    PRIMARY KEY (groupMemberID),
-    FOREIGN KEY (groupID) REFERENCES forum_groups(groupID),
-    FOREIGN KEY (userID) REFERENCES person(personID)
 );
 
 #Create support table (Rasmus)

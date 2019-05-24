@@ -16,10 +16,21 @@ INSERT INTO person (personUsername, personPassword, email, picture, personDescri
 VALUES ('Lars123', 'LarsPassword', 'LarsEmail@mail.com', null, null, 0),
        ('Niels Nielsen', 'NielsPassword', 'Niels@email.com', null, null, 0);
 
+#Insert values into forum_groups table (Rasmus)
+INSERT INTO forum_groups(groupName, groupDescription)
+VALUES('KlatreKlanen', 'En Klan dedikeret til at klatre på ting'),
+      ('CSS for dummies', 'Et fora dedikeret til at diskutere CSS');
+
+
+#Insert values into group_members table (Rasmus)
+INSERT INTO group_members(groupID, userID, permission, memberSince)
+VALUES(1, 1, 0, '2019-05-22 10:00:00'),
+      (1, 2, 0, '2019-05-21 21:00:00');
+
 #Insert values into post table
-INSERT INTO post(personID, postDate, changedDate, headline, textField)
-VALUES(1 ,'2019-5-5 10:12:33', '2019-05-10 10:12:07', 'This just in!', 'ObamaCare shut down by Trump, boohoo'),
-      (1, '2019-5-6 14:00:00', null, 'Another post', 'This is just a test, broh');
+INSERT INTO post(personID, belongsToGroup, postDate, changedDate, headline, textField)
+VALUES(1, 1,'2019-5-5 10:12:33', '2019-05-10 10:12:07', 'This just in!', 'ObamaCare shut down by Trump, boohoo'),
+      (1, 2,'2019-5-6 14:00:00', null, 'Another post', 'This is just a test, broh');
 
 #Insert values into post_views table
 INSERT INTO post_views(postID, personID, timestampViews)
@@ -40,17 +51,6 @@ VALUES(1, 'This is a comment text');
 #Insert values into respect_points table (Rasmus)
 INSERT INTO respect_points(toUserID, fromUserID, timestampRespectPoints)
 VALUES(1,2, '2019-05-22 13:53:00');
-
-#Insert values into forum_groups table (Rasmus)
-INSERT INTO forum_groups(groupName, groupDescription)
-VALUES('KlatreKlanen', 'En Klan dedikeret til at klatre på ting');
-
-
-#Insert values into group_members table (Rasmus)
-INSERT INTO group_members(groupID, userID, permission, memberSince)
-VALUES(1, 1, 0, '2019-05-22 10:00:00'),
-      (1, 2, 0, '2019-05-21 21:00:00');
-
 
 #Insert values into support table (Rasmus)
 INSERT INTO support(sentFromUserID, category, headline, supportText, timestampSupport, isSolved)
