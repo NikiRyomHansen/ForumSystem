@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/../adminHomeCSS.css">
+    <link rel="stylesheet" type="text/css" href="/../generalStyle.css">
+</head>
+<body>
+
+    <header th:replace="navigation/headNavigation" :: header>
+
+    </header>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Person ID</th>
+            <th>Comment</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="comments: ${comment}">
+            <td th:text="${comments.personID}"/>
+            <td th:text="${comments.commentText}"/>
+        </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

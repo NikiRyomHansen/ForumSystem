@@ -90,9 +90,11 @@ CREATE TABLE IF NOT EXISTS dislikes(
 CREATE TABLE IF NOT EXISTS comments(
 	commentID INT(10) NOT NULL AUTO_INCREMENT,
     personID INT(10) NOT NULL,
+    belongsToPost INT(10) NOT NULL,
     commentText VARCHAR(10000) NOT NULL,
     PRIMARY KEY (commentID),
-    FOREIGN KEY (personID) REFERENCES person(personID)
+    FOREIGN KEY (personID) REFERENCES person(personID),
+    FOREIGN KEY (belongsToPost) REFERENCES post(postID)
 );
 
 #Create respect_points table (Rasmus)

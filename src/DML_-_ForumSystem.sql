@@ -30,7 +30,8 @@ VALUES(1, 1, 0, '2019-05-22 10:00:00'),
 #Insert values into post table
 INSERT INTO post(personID, belongsToGroup, postDate, changedDate, headline, textField)
 VALUES(1, 1,'2019-5-5 10:12:33', '2019-05-10 10:12:07', 'This just in!', 'ObamaCare shut down by Trump, boohoo'),
-      (1, 2,'2019-5-6 14:00:00', null, 'Another post', 'This is just a test, broh');
+      (1, 2,'2019-5-6 14:00:00', null, 'Another post', 'This is just a test, broh'),
+      (1, 1,'2019-5-24 10:00:00', null, 'Climbing is the new black', 'A new study shows that climbing is becomming increasingly popular');
 
 #Insert values into post_views table
 INSERT INTO post_views(postID, personID, timestampViews)
@@ -45,8 +46,8 @@ INSERT INTO dislikes(postID, personID, timestampDislikes, dislikeMessage)
 VALUES(1, 1, '2019-05-11 10:45:00', 'I dislike this post, because it is invalid');
 
 #Insert values into comments table
-INSERT INTO comments(personID, commentText)
-VALUES(1, 'This is a comment text');
+INSERT INTO comments(personID, belongsToPost, commentText)
+VALUES(1, 1,'This is a comment text');
 
 #Insert values into respect_points table (Rasmus)
 INSERT INTO respect_points(toUserID, fromUserID, timestampRespectPoints)

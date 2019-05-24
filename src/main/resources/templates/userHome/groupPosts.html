@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/../adminHomeCSS.css">
+    <link rel="stylesheet" type="text/css" href="/../generalStyle.css">
+</head>
+
+    <header th:replace="navigation/headNavigation" :: header>
+    </header>
+
+    <h1>The posts should be here</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Post ID</th>
+                <th>Person ID</th>
+                <th>Headline</th>
+                <th>Text</th>
+                <th>Posted on</th>
+                <th>Changed on</th>
+                <th>View post</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="post: ${group}">
+                <td th:text="${post.postID}"/>
+                <td th:text="${post.personID}"/>
+                <td th:text="${post.headline}"/>
+                <td th:text="${post.textField}"/>
+                <td th:text="${post.postDate}"/>
+                <td th:text="${post.changedDate}"/>
+                <td>
+                    <a th:href="@{'/individualPost/'+${post.postID}}">
+                        <button class="btn-viewPost btn" id="btn-viewPost">View Post</button>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+<body>
+
+</body>
+</html>
