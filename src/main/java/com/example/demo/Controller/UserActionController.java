@@ -4,11 +4,7 @@ package com.example.demo.Controller;
 import com.example.demo.Model.Group;
 import com.example.demo.Model.Person;
 import com.example.demo.Model.PrivateMessage;
-import com.example.demo.Service.UserGroupService;
-import com.example.demo.Service.PostService;
-import com.example.demo.Service.UserCreateService;
-import com.example.demo.Service.UserViewService;
-import com.example.demo.Service.UserMessageService;
+import com.example.demo.Service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,7 +27,10 @@ public class UserActionController {
     PostService postService;
     @Autowired
     UserMessageService userMessageService;
+    @Autowired
+    UserUpdateService userUpdateService;
 
+    //Show a list of the person table on the login page - Niki, Khoi
     @GetMapping("/")
     public String login(Model model){
         List<Person> personList = userViewService.viewListOfPerson();
@@ -39,18 +38,36 @@ public class UserActionController {
         return "userHome/loginPage";
     }
 
+    //Send a Get request to view one person from the person table by personID - Niki
+    @GetMapping("/viewOnePerson/{personID}")
+    public String viewOnePerson(@PathVariable("personID") int personID, Model model) {
+        model.addAttribute("person", userViewService.viewOnePerson(personID));
+        return "userHome/viewOnePerson";
+    }
+
+    //View a Person using the personID - Niki
     @GetMapping("/userFrontPage/{personID}")
     public String goToUserFrontPage(@PathVariable("personID") int personID, Model model) {
         model.addAttribute("person", userViewService.viewOnePerson(personID));
         return "userHome/userFrontPage";
     }
 
+    //Send a Post request to update one Person in the Person table - Niki
+    @PostMapping("/updatePerson")
+    public String updatePerson(@ModelAttribute Person person) {
+        userUpdateService.updatePerson(person.getPersonID(), person);
+        return "redirect:/";
+    }
 
+    //TODO: Add the createPost method to this controller so that any User/Person can create a post
+
+    //open a new window that has all the needed information to create a Person in the person table - Khoi
     @GetMapping("/createUserWindow")
     public String createUserWindow(){
         return "userHome/createUserWindow";
     }
 
+    //Create a Person in the person table
     @PostMapping("/createUserWindow")
     public String createUserWindow(@ModelAttribute Person person) {
         userCreateService.createUserWindow(person);

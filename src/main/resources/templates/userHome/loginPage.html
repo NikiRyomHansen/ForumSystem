@@ -39,9 +39,7 @@
         <tr>
             <th>Username</th>
             <th>E-mail</th>
-            <th>Picture</th>
             <th>Profile Description</th>
-            <th>User Permission</th>
             <th>Options</th>
         </tr>
         </thead>
@@ -49,9 +47,7 @@
         <tr th:each="person: ${personList}">
             <td th:text="${person.personUsername}" />
             <td th:text="${person.email}" />
-            <td th:text="${person.picture}" />
             <td th:text="${person.personDescription}" />
-            <td th:text="${person.permission}" />
             <td>
                 <a th:href="@{'/userFrontPage/'+${person.personID}}">
                     <button class="btn-userFrontPage btn" id="btn-userFrontPage">View this user</button>

@@ -55,10 +55,9 @@ public class AdminHomeController {
     }
 
     //Send a Get request to view one person from the person table by personID - Niki
-    @GetMapping("/viewOnePerson/{personID}")
-    public String viewOnePerson(@PathVariable("personID") int personID, Model model) {
+    @GetMapping("/adminViewOnePerson/{personID}")
+    public String adminViewOnePerson(@PathVariable("personID") int personID, Model model) {
         model.addAttribute("person", userViewService.viewOnePerson(personID));
-        return "adminHome/viewOnePerson";
+        return "adminHome/adminViewOnePerson";
     }
-
 }

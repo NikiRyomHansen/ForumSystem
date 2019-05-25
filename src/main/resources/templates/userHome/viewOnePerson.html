@@ -17,19 +17,20 @@
                 <tr>
                     <th>Username</th>
                     <th>E-mail</th>
-                    <th>Picture</th>
-                    <th>Profile Description</th>
-                    <th>User Permission</th>
+                    <th>Description</th>
+                    <th>Options</th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="person: ${person}">
-                    <td th:text="${person.personUsername}" />
-                    <td th:text="${person.email}" />
-                    <td th:text="${person.picture}" />
-                    <td th:text="${person.personDescription}" />
-                    <td th:text="${person.permission}" />
-                </tr>
+                <form action="/updatePerson" method="post">
+                    <tr>
+                        <td style="display:none;"><input type="hidden" name="personID" th:value="${person.personID}"></td>
+                        <td><input type="text" name="personUsername" th:value="${person.personUsername}"></td>
+                        <td><input type="text" name="email" th:value="${person.email}"></td>
+                        <td><input type="text" name="personDescription" th:value="${person.personDescription}"></td>
+                        <td><input type="submit" id="btn-updatePerson" value="Update"></td>
+                    </tr>
+                </form>
             </tbody>
         </table>
 

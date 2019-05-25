@@ -25,7 +25,7 @@ VALUES('KlatreKlanen', 'En Klan dedikeret til at klatre på ting'),
 #Insert values into group_members table (Rasmus)
 INSERT INTO group_members(groupID, userID, permission, memberSince)
 VALUES(1, 1, 0, '2019-05-22 10:00:00'),
-      (1, 2, 0, '2019-05-21 21:00:00');
+      (2, 2, 0, '2019-05-21 21:00:00');
 
 #Insert values into post table
 INSERT INTO post(personID, belongsToGroup, postDate, changedDate, headline, textField)
