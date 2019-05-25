@@ -64,7 +64,7 @@ public class UserActionController {
     }
 
     //Takes the user to the groups page (Rasmus)
-    @GetMapping("/groups")
+    @GetMapping("/groups/")
     public String retrieveAllGroups(Model model) {
         List<Group> groupList = userGroupService.retrieveAllGroups();
         model.addAttribute("Groups", groupList);
@@ -72,8 +72,8 @@ public class UserActionController {
     }
     // Presents the user with a specific group and its posts (Rasmus)
     @GetMapping("/groups/{groupID}")
-    public String viewGroup(@PathVariable("groupID") int id, Model model) {
-        model.addAttribute("group", userGroupService.viewGroup());
+    public String viewGroup(@PathVariable("groupID") int id, Model model, @ModelAttribute Group group) {
+        model.addAttribute("group", userGroupService.viewGroup(group));
         return "userHome/groupPosts";
     }
 
@@ -85,6 +85,22 @@ public class UserActionController {
     }
 
     // Updates the database, so the user is no longer following group
+    // (leaveGroup)
+
+    // (postToGroup)
+
+    // Returns the createNewGroup html page
+    @GetMapping("/createNewGroup")
+    public String createGroup() {
+        return "userHome/createNewGroup";
+    }
+
+    // Creates a new group with the information given by the user.
+    @PostMapping("/createNewGroup")
+    public String createGroup(@ModelAttribute Group group, Person person) {
+        userGroupService.createGroup(group, person);
+        return "userHome/groups";
+    }
 
     // Presents the user with the specific post and its comments (Rasmus)
     @GetMapping("/individualPost/{postID}")

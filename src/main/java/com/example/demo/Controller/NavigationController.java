@@ -21,4 +21,6 @@ public class NavigationController {
         return "viewOnePerson";
     }
 
+    //@GetMapping("/createNewGroup")
+
 }

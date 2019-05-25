@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create a new Group</title>
+    <link rel="stylesheet" type="text/css" href="/../adminHomeCSS.css">
+    <link rel="stylesheet" type="text/css" href="/../generalStyle.css">
+</head>
+<body>
+
+    <header th:replace="navigation/headNavigation" :: header>
+    </header>
+
+    <h1>New Group creation</h1>
+
+    <form action="/createNewGroup" method="post">
+        <label>Group Name: </label>
+        <input type="text" name="groupName"/>
+        <label>Group Description: </label>
+
+        <textarea rows="6" cols="50" type="text" name="groupDescription"></textarea>
+
+        <input style="color: green" type="submit" value="Confirm"/>
+        <input style="color: red" type="submit" value="Cancel"/>
+
+
+    </form>
+
+</body>
+</html>

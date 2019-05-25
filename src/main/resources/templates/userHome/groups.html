@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Groups</title>
     <link rel="stylesheet" type="text/css" href="/../adminHomeCSS.css">
     <link rel="stylesheet" type="text/css" href="/../generalStyle.css">
 </head>
@@ -13,6 +13,13 @@
     </header>
 
     <h1>Group details</h1>
+
+    <td>
+        <a th:href="@{/createNewGroup/}">
+            <button class="btn-createNewGroup btn" id="btn-createNewGroup">Create new Group</button>
+        </a>
+    </td>
+
 
     <table>
         <thead>

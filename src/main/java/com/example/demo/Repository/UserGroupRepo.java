@@ -8,19 +8,27 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
-
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.List;
+
+/* This class contains all the SQL statements related to User actions performed on Group related tables
+in our database.
+
+@Author: Rasmus Knoth Nielsen
+ */
 
 @Repository
 public class UserGroupRepo implements GroupAction{
+
+    // Connecting UserGroup Repo with Jdbc Template.
+    // It is required by Spring.
     @Autowired
     JdbcTemplate template;
 
+    // Default constructor, required by Spring.
     public UserGroupRepo() {
     }
 
+    // Method to retrieve all groups on forum to display them in the groups.html page
     @Override
     public List<Group> retrieveAllGroups() {
         String sql = "SELECT * FROM forum_groups";
@@ -28,20 +36,21 @@ public class UserGroupRepo implements GroupAction{
         return template.query(sql, rowMapper);
     }
 
+    // Method to retrieve all posts from a group and display them in the groupPosts.html page
     @Override
-    public List<Post> viewGroup() {
-        String sql = "SELECT * FROM post WHERE belongsToGroup = 1";
+    public List<Post> viewGroup(Group group) {
+        String sql = "SELECT * FROM post WHERE belongsToGroup = " + group.getGroupID();
         RowMapper<Post> rowMapper = new BeanPropertyRowMapper<>(Post.class);
         return template.query(sql, rowMapper);
     }
 
+    // Method to join a specific group
     @Override
     public boolean joinGroup(Group group, Person person) {
         try {
 
             String sql = "INSERT INTO group_members( groupID, userID, permission, memberSince)" +
                     "VALUES( ?, ?, ?, NOW())";
-            // Variable to contain current time for timestamp
             template.update(sql, group.getGroupID(), person.getPersonID(), person.getPermission());
             return true;
 
@@ -51,14 +60,35 @@ public class UserGroupRepo implements GroupAction{
 
     }
 
+    // Method to leave a specific group
+    @Override
+    public boolean leaveGroup(Group group, Person person) {
+        try {
+            String sql = "DELETE FROM group_members WHERE groupID = ? AND userID = ?";
+            template.update(sql, group.getGroupID(), person.getPersonID());
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
+    }
 
     @Override
-    public boolean leaveGroup() { return true;}
+    public boolean postToGroup(Group group, Person person) { return true;}
+
+    // Method to create a new Group
+    @Override
+    public boolean createGroup(Group group, Person person) {
+        try {
+            String sql = "INSERT INTO forum_groups(groupName, groupDescription)" +
+                    "VALUES(?, ?)";
+            template.update(sql, group.getGroupName(), group.getGroupDescription());
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
+    }
 
     @Override
-    public boolean postToGroup() { return true;}
-
-    @Override
-    public boolean deleteGroup() { return true;}
+    public boolean deleteGroup(Group group, Person person) { return true;}
 
 }

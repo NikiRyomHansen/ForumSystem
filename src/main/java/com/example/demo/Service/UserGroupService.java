@@ -24,9 +24,9 @@ public class UserGroupService {
     }
 
     // Method to fetch all posts from a specific group
-    public List<Post> viewGroup() {
+    public List<Post> viewGroup(Group group) {
 
-        return this.userGroupRepo.viewGroup();
+        return this.userGroupRepo.viewGroup(group);
     }
 
     // Method to join a Group
@@ -34,5 +34,19 @@ public class UserGroupService {
 
         return this.userGroupRepo.joinGroup(group, person);
     }
+
+    // Method to leave a Group
+    public boolean leaveGroup(Group group, Person person) {
+        return this.userGroupRepo.leaveGroup(group, person);
+    }
+
+    // (postToGroup)
+
+    // Method to create a new Group
+    public boolean createGroup(Group group, Person person) {
+        return this.userGroupRepo.createGroup(group, person);
+    }
+
+    // (deleteGroup)
 
 }

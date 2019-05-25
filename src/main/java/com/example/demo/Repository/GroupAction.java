@@ -15,14 +15,16 @@ public interface GroupAction {
 
     public List<Group> retrieveAllGroups();
 
-    public List<Post> viewGroup();
+    public List<Post> viewGroup(Group group);
 
     public boolean joinGroup(Group group, Person person);
 
-    public boolean leaveGroup();
+    public boolean leaveGroup(Group group, Person person);
 
-    public boolean postToGroup();
+    public boolean postToGroup(Group group, Person person);
 
-    public boolean deleteGroup();
+    public boolean createGroup(Group group, Person person);
+
+    public boolean deleteGroup(Group group, Person person);
 
 }
