@@ -21,6 +21,7 @@
                 <th>Group Name</th>
                 <th>Group Description</th>
                 <th>Go to Group</th>
+                <th>Follow Group</th>
 
             </tr>
         </thead>
@@ -32,6 +33,11 @@
                 <td>
                     <a th:href="@{'/groups/'+${forum_groups.groupID}}">
                         <button class="btn-viewGroup btn" id="btn-viewGroup">View Group</button>
+                    </a>
+                </td>
+                <td>
+                    <a th:href="@{'/joinGroup/'+${forum_groups.groupID}}">
+                        <button class="btn-joinGroup btn" id="btn-joinGroup">Join Group</button>
                     </a>
                 </td>
             </tr>

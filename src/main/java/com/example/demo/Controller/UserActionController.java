@@ -4,10 +4,9 @@ package com.example.demo.Controller;
 import com.example.demo.Model.Group;
 import com.example.demo.Model.Person;
 import com.example.demo.Model.PrivateMessage;
-import com.example.demo.Service.GroupService;
+import com.example.demo.Service.UserGroupService;
 import com.example.demo.Service.PostService;
 import com.example.demo.Service.UserCreateService;
-import com.example.demo.Service.UserViewService;
 import com.example.demo.Service.UserViewService;
 import com.example.demo.Service.UserMessageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +24,7 @@ public class UserActionController {
     @Autowired
     UserCreateService userCreateService;
     @Autowired
-    GroupService groupService;
+    UserGroupService userGroupService;
     @Autowired
     UserViewService userViewService;
     @Autowired
@@ -66,17 +65,26 @@ public class UserActionController {
 
     //Takes the user to the groups page (Rasmus)
     @GetMapping("/groups")
-    public String goToGroups(Model model) {
-        List<Group> groupList = groupService.fetchAllGroups();
+    public String retrieveAllGroups(Model model) {
+        List<Group> groupList = userGroupService.retrieveAllGroups();
         model.addAttribute("Groups", groupList);
         return "userHome/groups";
     }
     // Presents the user with a specific group and its posts (Rasmus)
     @GetMapping("/groups/{groupID}")
     public String viewGroup(@PathVariable("groupID") int id, Model model) {
-        model.addAttribute("group", groupService.fetchAllPostsFromGroup());
+        model.addAttribute("group", userGroupService.viewGroup());
         return "userHome/groupPosts";
     }
+
+    //  Updates the database with the user as a follower of a specific group
+    @PostMapping("/joinGroup/")
+    public String joinGroup(@ModelAttribute Group group, Person person) {
+        userGroupService.joinGroup(group, person);
+        return "redirect:/";
+    }
+
+    // Updates the database, so the user is no longer following group
 
     // Presents the user with the specific post and its comments (Rasmus)
     @GetMapping("/individualPost/{postID}")
@@ -94,4 +102,5 @@ public class UserActionController {
 
         return "userHome/messagePage";
     }
+
 }

@@ -3,6 +3,7 @@ package com.example.demo.Model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class Group implements Serializable {
@@ -12,7 +13,9 @@ public class Group implements Serializable {
     private int groupID;
     private String groupName;
     private String groupDescription;
+    private List<GroupMember> groupMembers;
 
+    // Empty constructor, is used because Spring demands it
     public Group() {}
 
     // Constructor
