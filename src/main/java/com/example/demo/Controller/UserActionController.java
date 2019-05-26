@@ -3,6 +3,7 @@ package com.example.demo.Controller;
 
 import com.example.demo.Model.Group;
 import com.example.demo.Model.Person;
+import com.example.demo.Model.Post;
 import com.example.demo.Model.PrivateMessage;
 import com.example.demo.Service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +52,15 @@ public class UserActionController {
         model.addAttribute("person", userViewService.viewOnePerson(personID));
         return "userHome/userFrontPage";
     }
+
+    //TODO: Include this in the method goToUserFrontPage() so that it shows the Post table
+    /*//Request a GetMapping to the front page showing all posts. - Niki
+    @GetMapping("/userFrontPage")
+    public String frontPage(Model model) {
+        List<Post> postList = postService.fetchAll();
+        model.addAttribute("postList", postList);
+        return "userHome/userFrontPage";
+    }*/
 
     //Send a Post request to update one Person in the Person table - Niki
     @PostMapping("/updatePerson")
