@@ -13,8 +13,8 @@ public class UserMessageService {
     UserMessageRepo userMessageRepo;
 
     // Service Method to Show all messages
-    public List<PrivateMessage> getAllPrivateMessages(){
-        return this.userMessageRepo.getAllPrivateMessages();
+    public List<PrivateMessage> getAllPrivateMessages(int personID){
+        return this.userMessageRepo.getAllPrivateMessages(personID);
     }
 
 

@@ -126,14 +126,19 @@ public class UserActionController {
         return "userHome/individualPost";
     }
 
-
     // Return the messages page
-    @GetMapping("/messagePage")
-    public String goToMessagePage (Model model){
-        List<PrivateMessage> privateMessage = userMessageService.getAllPrivateMessages();
+    @GetMapping("/messagePage/{personID}")
+    public String goToMessagePage (@PathVariable("personID") int personID, Model model){
+        List<PrivateMessage> privateMessage = userMessageService.getAllPrivateMessages(personID);
         model.addAttribute("privateMessage", privateMessage);
 
         return "userHome/messagePage";
     }
+
+    @GetMapping("/newMessage")
+    public String goTONewMessagePage(){
+        return "userHome/newMessagePage";
+    }
+
 
 }

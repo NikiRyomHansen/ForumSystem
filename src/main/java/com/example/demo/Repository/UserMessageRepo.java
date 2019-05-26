@@ -17,11 +17,11 @@ public class UserMessageRepo {
     JdbcTemplate template;
 
     //Method to get all private messages and senders name
-    public List<PrivateMessage> getAllPrivateMessages(){
+    public List<PrivateMessage> getAllPrivateMessages(int personID){
         String sql = "SELECT person.personUsername, fromUserID, headline,\n" +
                 "\ttimestampPrivateMessage FROM private_messages\n" +
                 "\tFULL JOIN  person ON  fromUserID = personID  \n" +
-                "    WHERE toUserID = 1\n" +
+                "    WHERE toUserID = " + personID +
                 "\tORDER BY timestampPrivateMessage";
         RowMapper<PrivateMessage> rowMapper = new BeanPropertyRowMapper<>(PrivateMessage.class);
         List<PrivateMessage> privateMessagesList = template.query(sql, rowMapper);
