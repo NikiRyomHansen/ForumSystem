@@ -46,21 +46,15 @@ public class UserActionController {
         return "userHome/viewOnePerson";
     }
 
-    //View a Person using the personID - Niki
+    //Shows the userFrontPage with ALL posts  and takes a personID along in the parameter - Niki
     @GetMapping("/userFrontPage/{personID}")
     public String goToUserFrontPage(@PathVariable("personID") int personID, Model model) {
         model.addAttribute("person", userViewService.viewOnePerson(personID));
-        return "userHome/userFrontPage";
-    }
-
-    //TODO: Include this in the method goToUserFrontPage() so that it shows the Post table
-    /*//Request a GetMapping to the front page showing all posts. - Niki
-    @GetMapping("/userFrontPage")
-    public String frontPage(Model model) {
         List<Post> postList = postService.fetchAll();
         model.addAttribute("postList", postList);
         return "userHome/userFrontPage";
-    }*/
+    }
+
 
     //Send a Post request to update one Person in the Person table - Niki
     @PostMapping("/updatePerson")
