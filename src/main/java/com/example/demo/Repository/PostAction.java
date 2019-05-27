@@ -6,9 +6,9 @@ import com.example.demo.Model.*;
 public interface PostAction {
 
     //Methods to be implemented in AdminRepo and UserRepo
-    public Boolean deletePost();
+    public Boolean deletePost(int postID);
 
-    public Post editPost();
+    public Post editPost(int postID, Post post);
 
     public Post createPost(Post post, Person person);
 

@@ -18,21 +18,18 @@
 
         <form action="/userFrontPage/createPost/" method="post">
 
-            <input type="hidden" th:value="${groupID}" name="groupID">
+            <input type="hidden" th:value="${person.personID}" name="personID">
+            <br>
+            <b><label>belongsToGroup</label></b>
+            <input type="text" name="belongsToGroup">
             <br>
             <b><label>Title</label></b>
             <input type="text" name="headline">
             <br>
-            <b><label>Group</label></b>
-
-
-
             <b><label>Post text</label></b>
-            <textarea rows="6" cols="50" type="text" name="textField"></textarea>
-
+            <textarea rows="6" cols="50" id="postInputTextField" name="textField"></textarea>
 
             <input type="submit" id="btn-createPostSubmit" value="Create post">
-
         </form>
 
 

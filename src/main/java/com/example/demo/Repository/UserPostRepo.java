@@ -10,13 +10,19 @@ public class UserPostRepo implements PostAction {
     @Autowired
     JdbcTemplate template;
 
+    //Deletes a post TODO: Consider constraints with foreign keys when deleting a post
     @Override
-    public Boolean deletePost() {
-        return null;
+    public Boolean deletePost(int postID) {
+        String sql = "DELETE FROM post WHERE postID = ?";
+        return template.update(sql, postID) > 0;
     }
 
+    //Method to edit a post
     @Override
-    public Post editPost() {
+    public Post editPost(int postID, Post post) {
+        String sql = "UPDATE post SET changedDate = NOW(), headline = ?, textField = ?" +
+                     "WHERE postID = ?";
+        template.update(sql, post.getChangedDate(), post.getHeadline(), post.getTextField(), post.getPostID());
         return null;
     }
 

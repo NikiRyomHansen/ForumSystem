@@ -13,38 +13,28 @@
 
     </header>
 
-    <p>.</p>
-    <p>.</p>
-    <h1>This is where the main window is for users</h1>
+        <a th:href="@{'/createPost/'+${personID}}">
+            <button class="btn-createPost btn" id="btn-createPost">Create new post</button>
+        </a>
 
-    <a th:href="@{'/createPost/'+${personID}}">
-        <button class="btn-createPost btn" id="btn-createPost">Create new post</button>
-    </a>
     <table>
         <thead>
-        <tr>
-            <th>Title</th>
-            <th>Textfield</th>
-            <th>Post Date</th>
-            <th>Last edit</th>
-            <th>Go to Group</th>
-
-        </tr>
+            <tr>
+                <th>Title</th>
+                <th>Textfield</th>
+                <th>Post Date</th>
+                <th>Last edit</th>
+            </tr>
         </thead>
         <tbody>
-        <tr th:each="post: ${postList}">
-            <td th:text="${post.headline}" />
-            <td th:text="${post.textField}" />
-            <td th:text="${post.postDate}" />
-            <td th:text="${post.changedDate}" />
-            <td>
-                <a th:href="@{'/groupPosts/'+${post.belongsToGroup}}">
-                    <button class="btn-goToGroup btn" id="btn-goToGroup">Go to group</button>
-                </a>
-            </td>
-        </tr>
+            <tr th:each="post: ${postList}">
+                <td th:text="${post.headline}" />
+                <td th:text="${post.textField}" />
+                <td th:text="${post.postDate}" />
+                <td th:text="${post.changedDate}" />
+            </tr>
         </tbody>
     </table>
 
-</body>
+    </body>
 </html>

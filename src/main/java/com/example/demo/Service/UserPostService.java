@@ -14,4 +14,12 @@ public class UserPostService {
     public Post createPost(Post post, Person person) {
         return userPostRepo.createPost(post, person);
     }
+
+    public Boolean deletePost(int postID) {
+        return userPostRepo.deletePost(postID);
+    }
+
+    public Post editPost(int postID, Post post) {
+        return userPostRepo.editPost(postID, post);
+    }
 }

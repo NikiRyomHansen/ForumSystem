@@ -101,8 +101,8 @@ public class UserActionController {
     }
 
     //Takes the user to the groups page (Rasmus)
-    @GetMapping("/groups/{userID}")
-    public String retrieveAllGroups(@PathVariable("userID") int id, Model model) {
+    @GetMapping("/groups/")
+    public String retrieveAllGroups(Model model) {
         List<Group> groupList = userGroupService.retrieveAllGroups();
         model.addAttribute("Groups", groupList);
         return "userHome/groups";

@@ -13,12 +13,12 @@ public class AdminPostRepo implements PostAction {
     //Implementing methods from PostAction interface
 
     @Override
-    public Boolean deletePost() {
+    public Boolean deletePost(int postID) {
         return null;
     }
 
     @Override
-    public Post editPost() {
+    public Post editPost(int postID, Post post) {
         return null;
     }
 
