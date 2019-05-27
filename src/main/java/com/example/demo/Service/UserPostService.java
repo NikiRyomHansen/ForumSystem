@@ -19,6 +19,10 @@ public class UserPostService {
         return userPostRepo.deletePost(postID);
     }
 
+    public Post viewOnePost(int postID) {
+        return userPostRepo.viewOnePost(postID);
+    }
+
     public Post editPost(int postID, Post post) {
         return userPostRepo.editPost(postID, post);
     }

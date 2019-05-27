@@ -24,6 +24,7 @@
                 <th>Textfield</th>
                 <th>Post Date</th>
                 <th>Last edit</th>
+                <th>Options</th>
             </tr>
         </thead>
         <tbody>
@@ -32,6 +33,16 @@
                 <td th:text="${post.textField}" />
                 <td th:text="${post.postDate}" />
                 <td th:text="${post.changedDate}" />
+                <td>
+                    <a th:href="@{'/editOnePost/'+${post.postID}}">
+                        <button class="btn-editOnePost btn" id="btn-editOnePost">Edit post</button>
+                    </a>
+                </td>
+<!--                <td>
+                    <a th:href="@{'/userFrontPage/'+${person.personID}}">
+                        <button class="btn-userFrontPage btn" id="btn-userFrontPage">View this user</button>
+                    </a>
+                </td>-->
             </tr>
         </tbody>
     </table>
