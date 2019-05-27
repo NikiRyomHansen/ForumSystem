@@ -28,7 +28,8 @@
                 <th>Group Name</th>
                 <th>Group Description</th>
                 <th>Go to Group</th>
-                <th>Follow Group</th>
+                <th>Join Group</th>
+                <th>Delete Group</th>
 
             </tr>
         </thead>
@@ -45,6 +46,11 @@
                 <td>
                     <a th:href="@{'/joinGroup/'+${forum_groups.groupID}}">
                         <button class="btn-joinGroup btn" id="btn-joinGroup">Join Group</button>
+                    </a>
+                </td>
+                <td>
+                    <a th:href="@{'/deleteGroup/'+${forum_groups.groupID}}">
+                        <button class="btn-deleteGroup btn" id="btn-deleteGroup">Delete Group</button>
                     </a>
                 </td>
             </tr>

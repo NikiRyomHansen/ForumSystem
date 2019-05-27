@@ -89,6 +89,15 @@ public class UserGroupRepo implements GroupAction{
     }
 
     @Override
-    public boolean deleteGroup(Group group, Person person) { return true;}
+    public boolean deleteGroup(int groupID) {
+        try {
+            String sql = "DELETE FROM forum_groups WHERE groupID = ?";
+            template.update(sql, groupID);
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
+
+    }
 
 }

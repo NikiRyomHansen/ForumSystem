@@ -101,8 +101,8 @@ public class UserActionController {
     }
 
     //Takes the user to the groups page (Rasmus)
-    @GetMapping("/groups/")
-    public String retrieveAllGroups(Model model) {
+    @GetMapping("/groups/{personID}")
+    public String retrieveAllGroups(@PathVariable("personID") int personID, Model model) {
         List<Group> groupList = userGroupService.retrieveAllGroups();
         model.addAttribute("Groups", groupList);
         return "userHome/groups";
@@ -136,6 +136,13 @@ public class UserActionController {
     @PostMapping("/createNewGroup")
     public String createGroup(@ModelAttribute Group group, Person person) {
         userGroupService.createGroup(group, person);
+        return "redirect:/";
+    }
+
+    // Deletes a group
+    @GetMapping("/deleteGroup/{groupID}")
+    public String deleteGroup(@PathVariable("groupID") int groupID, Model model) {
+        model.addAttribute("deleteGroup", userGroupService.deleteGroup(groupID));
         return "redirect:/";
     }
 

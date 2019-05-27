@@ -15,9 +15,9 @@
     <header  id="topnav">
         <ul>
 
-            <li id="rightHome" class="topNav"><a> HOME </a></li>
+            <li id="rightHome" class="topNav" ><a th:href="@{'/userFrontPage/'+${personID}}"> HOME </a></li>
 
-            <li id="leftLogOut" class="topNav"><a> LOG OUT </a></li>
+            <li id="leftLogOut" class="topNav"><a th:href="@{/}"> LOG OUT </a></li>
 
 
             <li id="theSupport" class="topNav"><a> SUPPORT </a></li>

@@ -48,5 +48,6 @@ public class UserGroupService {
     }
 
     // (deleteGroup)
+    public boolean deleteGroup(int groupID) { return this.userGroupRepo.deleteGroup(groupID); }
 
 }

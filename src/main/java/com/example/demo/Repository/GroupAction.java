@@ -25,6 +25,6 @@ public interface GroupAction {
 
     public boolean createGroup(Group group, Person person);
 
-    public boolean deleteGroup(Group group, Person person);
+    public boolean deleteGroup(int groupID);
 
 }
