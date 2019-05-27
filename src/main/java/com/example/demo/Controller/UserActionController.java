@@ -30,6 +30,8 @@ public class UserActionController {
     UserMessageService userMessageService;
     @Autowired
     UserUpdateService userUpdateService;
+    @Autowired
+    UserPostService userPostService;
 
     //Show a list of the person table on the login page - Niki, Khoi
     @GetMapping("/")
@@ -53,6 +55,20 @@ public class UserActionController {
         List<Post> postList = postService.fetchAll();
         model.addAttribute("postList", postList);
         return "userHome/userFrontPage";
+    }
+
+    //Request a GetMapping to redirect to a new html file to create a new post - Niki
+    @GetMapping("/createPost/{personID}")
+    public String createPost(@PathVariable("personID") int personID, Model model) {
+        model.addAttribute("person", userViewService.viewOnePerson(personID));
+        return "userHome/createPost";
+    }
+
+    //Request a PostMapping to create a new post - Niki
+    @PostMapping("/userFrontPage/createPost/")
+    public String createPost(@ModelAttribute Post post, @ModelAttribute Person person) {
+        userPostService.createPost(post, person);
+        return "redirect:/";
     }
 
 

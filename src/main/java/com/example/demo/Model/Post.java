@@ -30,9 +30,10 @@ public class Post {
     }
 
     //Constructor containing all fields
-    public Post(int postID, String postDate, String changedDate, String headline, String textField,
+    public Post(int postID, int belongsToGroup, String postDate, String changedDate, String headline, String textField,
                 List<Comments> comments, List<Views> views, List<Likes> likes, List<Dislikes> dislikes) {
         this.postID = postID;
+        this.belongsToGroup = belongsToGroup;
         this.postDate = postDate;
         this.changedDate = changedDate;
         this.headline = headline;

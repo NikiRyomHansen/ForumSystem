@@ -32,19 +32,19 @@ public class AdminHomeController {
         return "adminHome/frontPage";
     }
 
-    //Request a GetMapping to redirect to a new html file to create a new post - Niki
+    /*//Request a GetMapping to redirect to a new html file to create a new post - Niki
     @GetMapping("/createPost")
     public String createPost() {
         return "adminHome/createPost";
-    }
+    }*/
 
     //Request a PostMapping to create a new post - Niki
-    //TODO: Not sure why this works, it should be AdminPostService - look into later (NIKI)
+    /*//TODO: Not sure why this works, it should be AdminPostService - look into later (NIKI)
     @PostMapping("/frontPage/createPost")
-    public String createPost(@ModelAttribute Post post, @ModelAttribute Person person) {
-        adminPostRepo.createPost(post, person);
+    public String createPost(@ModelAttribute Post post, @ModelAttribute Person person, int personID) {
+        adminPostRepo.createPost(post, person, personID);
         return "redirect:/";
-    }
+    }*/
 
     //Send a Get request to show all users in a list. - Niki
     @GetMapping("/viewListOfPerson")

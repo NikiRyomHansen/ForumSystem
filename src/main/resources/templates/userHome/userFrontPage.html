@@ -17,7 +17,7 @@
     <p>.</p>
     <h1>This is where the main window is for users</h1>
 
-    <a href="/createPost">
+    <a th:href="@{'/createPost/'+${personID}}">
         <button class="btn-createPost btn" id="btn-createPost">Create new post</button>
     </a>
     <table>

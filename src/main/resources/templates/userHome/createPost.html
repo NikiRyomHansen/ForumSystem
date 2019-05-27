@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Create Post</title>
-    <link rel="stylesheet" type="text/css" href="createPostCSS.css">
-    <link rel="stylesheet" type="text/css" href="generalStyle.css">
+    <link rel="stylesheet" type="text/css" href="/../createPostCSS.css">
+    <link rel="stylesheet" type="text/css" href="/../generalStyle.css">
 </head>
 <body>
 
@@ -16,11 +16,12 @@
     <h1>Create a new post</h1>
 
 
-        <form action="/index/createPost" method="post">
+        <form action="/userFrontPage/createPost/" method="post">
 
-            <label>Person ID (Change later)</label>
-            <input type="text" name="personID">
+            <input type="hidden" th:value="${person.personID}" name="personID">
             <br>
+            <b><label>belongsToGroup</label></b>
+            <input type="text" name="belongsToGroup">
             <b><label>Title</label></b>
             <input type="text" name="headline">
             <br>
