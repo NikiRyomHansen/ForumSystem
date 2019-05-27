@@ -71,6 +71,19 @@ public class UserActionController {
         return "redirect:/";
     }
 
+    //redirects to the editOnePost html page to be able to edit the post - Niki
+    @GetMapping("/editOnePost/{postID}")
+    public String editOnePost(@PathVariable("postID") int postID, Model model) {
+        model.addAttribute("post", userPostService.viewOnePost(postID));
+        return "userHome/editOnePost";
+    }
+
+    //Sends a Post request to the web application to edit the post table in the database
+    @PostMapping("/editOnePost")
+    public String editOnePost(@ModelAttribute Post post) {
+        userPostService.editPost(post.getPostID(), post);
+        return "redirect:/";
+    }
 
     //Send a Post request to update one Person in the Person table - Niki
     @PostMapping("/updatePerson")

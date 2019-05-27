@@ -33,6 +33,11 @@ public class AdminPostRepo implements PostAction {
     }
 
     @Override
+    public Post viewOnePost(int postID) {
+        return null;
+    }
+
+    @Override
     public Post readPost() {
         return null;
     }

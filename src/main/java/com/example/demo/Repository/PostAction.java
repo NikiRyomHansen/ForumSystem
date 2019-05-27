@@ -12,6 +12,8 @@ public interface PostAction {
 
     public Post createPost(Post post, Person person);
 
+    public Post viewOnePost(int postID);
+
     public Post readPost();
 
     public Likes likePost();

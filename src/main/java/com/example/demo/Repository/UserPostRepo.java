@@ -2,7 +2,9 @@ package com.example.demo.Repository;
 
 import com.example.demo.Model.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -20,9 +22,9 @@ public class UserPostRepo implements PostAction {
     //Method to edit a post
     @Override
     public Post editPost(int postID, Post post) {
-        String sql = "UPDATE post SET changedDate = NOW(), headline = ?, textField = ?" +
+        String sql = "UPDATE post SET changedDate = NOW(), headline = ?, textField = ? " +
                      "WHERE postID = ?";
-        template.update(sql, post.getChangedDate(), post.getHeadline(), post.getTextField(), post.getPostID());
+        template.update(sql, post.getHeadline(), post.getTextField(), post.getPostID());
         return null;
     }
 
@@ -34,6 +36,15 @@ public class UserPostRepo implements PostAction {
         template.update(sql, person.getPersonID(), post.getBelongsToGroup(), post.getPostDate(), post.getChangedDate(), post.getHeadline(),
                 post.getTextField());
         return null;
+    }
+
+    //Method to view one post by postID
+    @Override
+    public Post viewOnePost(int postID) {
+        String sql = "SELECT * FROM post WHERE postID = ?";
+        RowMapper<Post> rowMapper = new BeanPropertyRowMapper<>(Post.class);
+        Post post = template.queryForObject(sql, rowMapper, postID);
+        return post;
     }
 
     @Override
