@@ -101,14 +101,14 @@ public class UserActionController {
     }
 
     //Takes the user to the groups page (Rasmus)
-    @GetMapping("/groups/")
-    public String retrieveAllGroups(Model model) {
+    @GetMapping("/groups/{userID}")
+    public String retrieveAllGroups(@PathVariable("userID") int id, Model model) {
         List<Group> groupList = userGroupService.retrieveAllGroups();
         model.addAttribute("Groups", groupList);
         return "userHome/groups";
     }
     // Presents the user with a specific group and its posts (Rasmus)
-    @GetMapping("/groups/{groupID}")
+    @GetMapping("/groupPosts/{groupID}")
     public String viewGroup(@PathVariable("groupID") int id, Model model, @ModelAttribute Group group) {
         model.addAttribute("group", userGroupService.viewGroup(group));
         return "userHome/groupPosts";
@@ -136,7 +136,7 @@ public class UserActionController {
     @PostMapping("/createNewGroup")
     public String createGroup(@ModelAttribute Group group, Person person) {
         userGroupService.createGroup(group, person);
-        return "userHome/groups";
+        return "redirect:/";
     }
 
     // Presents the user with the specific post and its comments (Rasmus)

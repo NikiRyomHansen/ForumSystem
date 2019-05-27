@@ -38,7 +38,7 @@
                 <td th:text="${forum_groups.groupName}"/>
                 <td th:text="${forum_groups.groupDescription}"/>
                 <td>
-                    <a th:href="@{'/groups/'+${forum_groups.groupID}}">
+                    <a th:href="@{'/groupPosts/'+${forum_groups.groupID}}">
                         <button class="btn-viewGroup btn" id="btn-viewGroup">View Group</button>
                     </a>
                 </td>

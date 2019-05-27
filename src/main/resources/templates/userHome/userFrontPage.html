@@ -27,6 +27,7 @@
             <th>Textfield</th>
             <th>Post Date</th>
             <th>Last edit</th>
+            <th>Go to Group</th>
 
         </tr>
         </thead>
@@ -36,6 +37,11 @@
             <td th:text="${post.textField}" />
             <td th:text="${post.postDate}" />
             <td th:text="${post.changedDate}" />
+            <td>
+                <a th:href="@{'/groupPosts/'+${post.belongsToGroup}}">
+                    <button class="btn-goToGroup btn" id="btn-goToGroup">Go to group</button>
+                </a>
+            </td>
         </tr>
         </tbody>
     </table>
