@@ -10,26 +10,24 @@ public class Comments {
     @Id
     //fields
     private int commentID;
+    private int postID;
     private int personID;
-    private int belongsToPost;
     private String commentText;
     private List<Likes> commentLikes;
-    private List<Dislikes> commentdislikes;
-    private Person person;
+    private List<Dislikes> commentDislikes;
 
     //Empty Constructor
     public Comments() {
     }
 
     //Constructor containing all fields
-    public Comments(int commentID, int personID, int belongsToPost, String commentText, List<Likes> commentLikes, List<Dislikes> commentdislikes, Person person) {
+    public Comments(int commentID, int personID, int postID, String commentText, List<Likes> commentLikes, List<Dislikes> commentDislikes) {
         this.commentID = commentID;
         this.personID = personID;
-        this.belongsToPost = belongsToPost;
+        this.postID = postID;
         this.commentText = commentText;
         this.commentLikes = commentLikes;
-        this.commentdislikes = commentdislikes;
-        this.person = person;
+        this.commentDislikes = commentDislikes;
     }
 
     public int getCommentID() {
@@ -48,12 +46,12 @@ public class Comments {
         this.personID = personID;
     }
 
-    public int getBelongsToPost() {
-        return belongsToPost;
+    public int getPostID() {
+        return postID;
     }
 
-    public void setBelongsToPost(int belongsToPost) {
-        this.belongsToPost = belongsToPost;
+    public void setPostID(int postID) {
+        this.postID = postID;
     }
 
     public String getCommentText() {
@@ -72,19 +70,11 @@ public class Comments {
         this.commentLikes = commentLikes;
     }
 
-    public List<Dislikes> getCommentdislikes() {
-        return commentdislikes;
+    public List<Dislikes> getCommentDislikes() {
+        return commentDislikes;
     }
 
-    public void setCommentdislikes(List<Dislikes> commentdislikes) {
-        this.commentdislikes = commentdislikes;
-    }
-
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
+    public void setCommentdislikes(List<Dislikes> commentDislikes) {
+        this.commentDislikes = commentDislikes;
     }
 }

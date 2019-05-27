@@ -91,12 +91,10 @@ CREATE TABLE IF NOT EXISTS comments(
 	commentID INT(10) NOT NULL AUTO_INCREMENT,
 	postID INT(10) NOT NULL,
     personID INT(10) NOT NULL,
-    belongsToPost INT(10) NOT NULL,
     commentText VARCHAR(10000) NOT NULL,
     PRIMARY KEY (commentID),
     FOREIGN KEY (postID) REFERENCES post(postID),
-    FOREIGN KEY (personID) REFERENCES person(personID),
-    FOREIGN KEY (belongsToPost) REFERENCES post(postID)
+    FOREIGN KEY (personID) REFERENCES person(personID)
 );
 
 #Create respect_points table (Rasmus)

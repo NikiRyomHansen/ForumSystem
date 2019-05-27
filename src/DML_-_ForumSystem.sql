@@ -46,7 +46,7 @@ INSERT INTO dislikes(postID, personID, timestampDislikes, dislikeMessage)
 VALUES(1, 1, '2019-05-11 10:45:00', 'I dislike this post, because it is invalid');
 
 #Insert values into comments table
-INSERT INTO comments(personID, belongsToPost, commentText)
+INSERT INTO comments(personID, postID, commentText)
 VALUES(1, 1,'This is a comment text');
 
 #Insert values into respect_points table (Rasmus)
