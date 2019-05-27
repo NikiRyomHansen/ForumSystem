@@ -85,6 +85,12 @@ public class UserActionController {
         return "redirect:/";
     }
 
+    @GetMapping("/deletePost/{postID}")
+    public String deletePost(@PathVariable("postID") int postID) {
+        userPostService.deletePost(postID);
+        return "redirect:/";
+    }
+
     //Send a Post request to update one Person in the Person table - Niki
     @PostMapping("/updatePerson")
     public String updatePerson(@ModelAttribute Person person) {

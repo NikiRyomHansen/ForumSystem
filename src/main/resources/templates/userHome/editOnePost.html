@@ -3,28 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Edit post</title>
-    <link rel="stylesheet" type="text/css" href="/../createPostCSS.css">
+    <link rel="stylesheet" type="text/css" href="/../adminHomeCSS.css">
     <link rel="stylesheet" type="text/css" href="/../generalStyle.css">
 </head>
 <body>
 
-<table id="tableViewPersonIDOne">
+<header th:replace="navigation/headNavigation" :: header>
+
+</header>
+
+<table>
     <thead>
-    <tr>
-        <th>Title</th>
-        <th>Textfield</th>
-        <th>Options</th>
-    </tr>
+        <tr>
+            <th>Title</th>
+            <th>Textfield</th>
+            <th>Options</th>
+        </tr>
     </thead>
     <tbody>
-    <form action="/editOnePost" method="post">
-        <tr>
-            <td style="display:none;"><input type="hidden" name="postID" th:value="${post.postID}"></td>
-            <td><input type="text" name="headline" th:value="${post.headline}"></td>
-            <td><textarea rows="6" cols="50"  type="text" name="textField" th:value="${post.textField}"></textarea></td>
-            <td><input type="submit" id="btn-editOnePostSubmit" value="Update post"></td>
-        </tr>
-    </form>
+        <form action="/editOnePost" method="post">
+            <tr>
+                <td style="display:none;"><input type="hidden" name="postID" th:value="${post.postID}"></td>
+                <td><input type="text" name="headline" th:value="${post.headline}"></td>
+                <td><textarea rows="6" cols="50"  type="text" name="textField" th:value="${post.textField}"></textarea></td>
+                <td><input type="submit" id="btn-editOnePostSubmit" value="Update post"></td>
+            </tr>
+        </form>
     </tbody>
 </table>
 

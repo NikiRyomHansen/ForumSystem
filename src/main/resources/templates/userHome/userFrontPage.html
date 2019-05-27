@@ -37,12 +37,10 @@
                     <a th:href="@{'/editOnePost/'+${post.postID}}">
                         <button class="btn-editOnePost btn" id="btn-editOnePost">Edit post</button>
                     </a>
-                </td>
-<!--                <td>
-                    <a th:href="@{'/userFrontPage/'+${person.personID}}">
-                        <button class="btn-userFrontPage btn" id="btn-userFrontPage">View this user</button>
+                    <a th:href="@{'/deletePost/'+${post.postID}}">
+                        <button class="btn-deletePost btn" id="btn-deletePost">Delete post</button>
                     </a>
-                </td>-->
+                </td>
             </tr>
         </tbody>
     </table>
