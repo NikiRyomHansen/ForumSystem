@@ -1,0 +1,58 @@
+.btn {
+    border: none;
+    color: white;
+    padding: 7px 10px;
+    text-align: center;
+    background-color: green;
+}
+.btn:hover{
+    box-shadow: 2px 2px 2px #888888;
+}
+
+#btn-updatePerson{
+    border: none;
+    color: white;
+    padding: 7px 10px;
+    text-align: center;
+    background-color: green;
+}
+#btn-updatePerson:hover{
+    box-shadow: 2px 2px 2px #888888;
+}
+
+#btn-deletePost{
+    background-color: red;
+}
+
+#btn-editOnePost{
+    width: 40%;
+}
+
+#btn-deletePost{
+    width: 40%;
+}
+
+p{
+    display: inline;
+}
+
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 2%;
+}
+
+th{
+    background-color: lightblue;
+}
+
+td, th {
+    border: 1px solid black;
+    text-align: left;
+    padding: 2%;
+}
+
+tr:nth-child(even){
+    background-color: lightgrey;
+}

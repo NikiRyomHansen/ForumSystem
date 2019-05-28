@@ -5,32 +5,33 @@
     <title>Login Page</title>
     <link rel="stylesheet" type="text/css" href="loginCSS.css">
 </head>
-<body>
+<body style="background-color: #c5ebef">
 
-    <h1>Welcome to Transrationel</h1>
+    <h1>Welcome to The Transrational</h1>
 
-    <label>Username: </label>
-    <input type="text" name="personUsername">
-    <label>Password: </label>
-    <input type="password" name="personPassword">
+    <div id="loginUserAndPass">
+        <b><label>Username: </label></b>
+        <input type="text"  name="personUsername">
+        <br>
+        <b><label>Password:  </label></b>
+        <input type="password" name="personPassword">
+        <br>
+        <input style="color: black" id="btn-loginButton" type="submit" value="Login"/>
+        <br>
 
-    <input style="color: black" type="submit" value="Login"/>
+        <p><a href="/createUserWindow">
+         <button class="btn-createUserWindow btn" id="btn-createUserWindow">Create new user</button>
+        </a></p>
 
-    <a href="/createUserWindow">
-     <button class="btn-createUserWindow btn" id="btn-createUserWindow">Create new user</button>
-    </a>
+        <p><a href="/userFrontPage">
+            <button class="btn-goToFrontPage btn" id="btn-goToFrontPage">Go to user frontpage</button>
+        </a></p>
 
-    <a href="/userFrontPage">
-        <button class="btn-goToFrontpage btn" id="btn-goToFrontpage">Go to user frontpage</button>
-    </a>
+        <p><a href="/frontPage">
+            <button class="btn-frontPage btn" id="btn-frontPage">Go to Admin frontpage</button>
+        </a></p>
+    </div>
 
-    <!--<a th:href="@{'/viewPersonIDOne/'+${person.personID}}">
-        <button class="btn-viewPersonIDOne btn" id="btn-viewPersonIDOne">Profile</button>
-    </a>-->
-
-    <a href="/frontPage">
-        <button class="btn-frontPage btn" id="btn-frontPage">Go to Admin frontpage</button>
-    </a>
 
     <h1>List of users</h1>
 

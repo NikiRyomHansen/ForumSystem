@@ -20,7 +20,7 @@ CSS to the top navigation bar
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: black;
+    background-color: #00515a;
     position: fixed;
     top : 0;
 }
@@ -80,7 +80,7 @@ CSS to side navigation bar and it is
 
     margin:0;
     padding:0;
-    background-color: black;
+    background-color: #00515a;
     position: fixed;
     height: 100%;
     width: 20%;
@@ -92,6 +92,10 @@ CSS to side navigation bar and it is
     color: white;
     padding: 8px 16px;
     text-decoration: none;
+}
+
+#btn-groups{
+    margin-top: 1%;
 }
 
 /*--------------------*/

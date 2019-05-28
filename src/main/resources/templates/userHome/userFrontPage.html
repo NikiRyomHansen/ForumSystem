@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Frontpage</title>
-    <link rel="stylesheet" type="text/css" href="/../adminHomeCSS.css">
+    <link rel="stylesheet" type="text/css" href="/../userHomeCSS.css">
     <link rel="stylesheet" type="text/css" href="/../generalStyle.css">
 </head>
-<body>
+<body style="background-color: #c5ebef">
 
     <header th:replace="navigation/headNavigation" :: header>
 
@@ -34,12 +34,12 @@
                 <td th:text="${post.postDate}" />
                 <td th:text="${post.changedDate}" />
                 <td>
-                    <a th:href="@{'/editOnePost/'+${post.postID}}">
+                    <p><a th:href="@{'/editOnePost/'+${post.postID}}">
                         <button class="btn-editOnePost btn" id="btn-editOnePost">Edit post</button>
-                    </a>
-                    <a th:href="@{'/deletePost/'+${post.postID}}">
+                    </a></p>
+                    <p><a th:href="@{'/deletePost/'+${post.postID}}">
                         <button class="btn-deletePost btn" id="btn-deletePost">Delete post</button>
-                    </a>
+                    </a></p>
                 </td>
             </tr>
         </tbody>
