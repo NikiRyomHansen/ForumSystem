@@ -127,11 +127,15 @@ public class UserActionController {
         return "userHome/groupPosts";
     }
 
+    // Presents the user with the joinGroup page
+    @GetMapping("/joinGroup")
+    public String joinGroup() { return "userHome/groups"; }
+
     //  Updates the database with the user as a follower of a specific group
-    @PostMapping("/joinGroup/")
-    public String joinGroup(@ModelAttribute Group group, Person person) {
-        userGroupService.joinGroup(group, person);
-        return "redirect:/";
+    @PostMapping("/joinGroup/{groupID}")
+    public String joinGroup(@PathVariable("groupID") int groupID, @ModelAttribute Person person, Model model) {
+        model.addAttribute("joinGroup", userGroupService.joinGroup(groupID, person));
+        return "userHome/joinGroup";
     }
 
     // Updates the database, so the user is no longer following group

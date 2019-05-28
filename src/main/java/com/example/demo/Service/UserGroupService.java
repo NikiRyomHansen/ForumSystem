@@ -30,9 +30,9 @@ public class UserGroupService {
     }
 
     // Method to join a Group
-    public boolean joinGroup(Group group, Person person) {
+    public boolean joinGroup(int groupID, Person person) {
 
-        return this.userGroupRepo.joinGroup(group, person);
+        return this.userGroupRepo.joinGroup(groupID, person);
     }
 
     // Method to leave a Group

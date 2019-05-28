@@ -17,7 +17,7 @@ public interface GroupAction {
 
     public List<Post> viewGroup(Group group);
 
-    public boolean joinGroup(Group group, Person person);
+    public boolean joinGroup(int groupID, Person person);
 
     public boolean leaveGroup(Group group, Person person);
 

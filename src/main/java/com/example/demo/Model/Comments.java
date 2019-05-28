@@ -20,7 +20,7 @@ public class Comments {
     public Comments() {
     }
 
-    //Constructor containing all fields
+    //Default Constructor
     public Comments(int commentID, int personID, int postID, String commentText, List<Likes> commentLikes, List<Dislikes> commentDislikes) {
         this.commentID = commentID;
         this.personID = personID;
@@ -30,6 +30,7 @@ public class Comments {
         this.commentDislikes = commentDislikes;
     }
 
+    // Accessors and Mutators
     public int getCommentID() {
         return commentID;
     }

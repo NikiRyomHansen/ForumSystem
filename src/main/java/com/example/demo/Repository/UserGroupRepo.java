@@ -46,12 +46,12 @@ public class UserGroupRepo implements GroupAction{
 
     // Method to join a specific group
     @Override
-    public boolean joinGroup(Group group, Person person) {
+    public boolean joinGroup(int groupID, Person person) {
         try {
 
             String sql = "INSERT INTO group_members( groupID, userID, permission, memberSince)" +
                     "VALUES( ?, ?, ?, NOW())";
-            template.update(sql, group.getGroupID(), person.getPersonID(), person.getPermission());
+            template.update(sql, groupID, person.getPersonID(), person.getPermission());
             return true;
 
         } catch (Exception ex) {

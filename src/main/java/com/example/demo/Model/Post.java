@@ -44,6 +44,8 @@ public class Post {
         this.dislikes = dislikes;
     }
 
+
+    // Accesors and Mutators
     public int getPostID() {
         return postID;
     }
@@ -132,20 +134,5 @@ public class Post {
         this.dislikes = dislikes;
     }
 
-    //possible methods:
-    /*
-    public int calculateViews() {
-
-        return amountOfViews;
-    }
-
-    public int calculateLikes() {
-        return amountOfLikes;
-    }
-
-    public int calculateDislikes() {
-        return amountOfDislikes;
-    }
-    */
 
 }

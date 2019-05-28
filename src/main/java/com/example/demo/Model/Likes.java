@@ -8,11 +8,11 @@ public class Likes {
 
     @Id
     //fields
-    //formatting for Date
-    java.util.Date dt = new java.util.Date();
-    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
+    //The following two lines are used for when a date has to be read from the database.
+    private java.util.Date dt = new java.util.Date();
+    private java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private int likesID;
+    private int postID;
     private Person person;
     private String timestamp = sdf.format(dt);
 
@@ -20,19 +20,29 @@ public class Likes {
     public Likes() {
     }
 
-    //Constructor containing all fields
-    public Likes(int likesID, Person person, String timestamp) {
+    //Default Constructor
+    public Likes(int likesID, int postID, Person person, String timestamp) {
         this.likesID = likesID;
+        this.postID = postID;
         this.person = person;
         this.timestamp = timestamp;
     }
 
+    // Accessors and Mutators.
     public int getLikesID() {
         return likesID;
     }
 
     public void setLikesID(int likesID) {
         this.likesID = likesID;
+    }
+
+    public int getPostID() {
+        return postID;
+    }
+
+    public void setPostID(int postID) {
+        this.postID = postID;
     }
 
     public Person getPerson() {

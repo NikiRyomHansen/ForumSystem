@@ -6,9 +6,9 @@ CREATE DATABASE IF NOT EXISTS forum_system;
 USE forum_system;
 
 #TABLES - Check if it exists on all tables
-#Create user table
+#Create user table (Rasmus and Niki)
 CREATE TABLE IF NOT EXISTS person(
-	personID INT(10) NOT NULL AUTO_INCREMENT,
+    personID INT(10) NOT NULL AUTO_INCREMENT,
     personUsername VARCHAR(255) NOT NULL UNIQUE,
     personPassword VARCHAR(255) NOT NULL, #Der er en SQL kommando der hedder password, derfor hedder kolonnen passwordPerson
     email VARCHAR(255) NOT NULL UNIQUE,
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS person(
     PRIMARY KEY (personID)
 );
 
-#Create groups table (Rasmus)
+#Create groups table (Rasmus and Niki)
 CREATE TABLE IF NOT EXISTS forum_groups(
     groupID INT(10) NOT NULL AUTO_INCREMENT,
     groupName VARCHAR(255) NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS forum_groups(
     PRIMARY KEY (groupID)
 );
 
-#Create group_members table (Rasmus)
+#Create group_members table (Rasmus and Niki)
 CREATE TABLE IF NOT EXISTS group_members(
     groupMemberID INT(10) NOT NULL AUTO_INCREMENT,
     groupID INT(10) NOT NULL,
@@ -38,10 +38,10 @@ CREATE TABLE IF NOT EXISTS group_members(
     FOREIGN KEY (userID) REFERENCES person(personID)
 );
 
-#Create post table
+#Create post table (Rasmus and Niki)
 CREATE TABLE IF NOT EXISTS post(
-	postID INT(10) NOT NULL AUTO_INCREMENT,
-	belongsToGroup int(10) NOT NULL,
+    postID INT(10) NOT NULL AUTO_INCREMENT,
+    belongsToGroup int(10) NOT NULL,
     personID INT(10) NOT NULL,
     postDate TIMESTAMP NOT NULL,
     changedDate TIMESTAMP,
@@ -52,9 +52,9 @@ CREATE TABLE IF NOT EXISTS post(
     FOREIGN KEY (belongsToGroup) REFERENCES forum_groups(groupID)
 );
 
-#Create views table
+#Create views table (Rasmus)
 CREATE TABLE IF NOT EXISTS post_views(
-	viewsID INT(10) NOT NULL AUTO_INCREMENT,
+    viewsID INT(10) NOT NULL AUTO_INCREMENT,
     postID INT(10) NOT NULL,
     personID INT(10) NOT NULL,
     timestampViews TIMESTAMP NOT NULL,
@@ -63,9 +63,9 @@ CREATE TABLE IF NOT EXISTS post_views(
     FOREIGN KEY (personID) REFERENCES person(personID)
 );
 
-#Create likes table
+#Create likes table (Rasmus)
 CREATE TABLE IF NOT EXISTS likes(
-	likesID INT(10) NOT NULL AUTO_INCREMENT,
+    likesID INT(10) NOT NULL AUTO_INCREMENT,
     postID INT(10) NOT NULL,
     personID INT(10) NOT NULL,
     timestampLikes TIMESTAMP NOT NULL,
@@ -74,9 +74,9 @@ CREATE TABLE IF NOT EXISTS likes(
     FOREIGN KEY (postID) REFERENCES post(postID)
 );
 
-#Create dislikes table
+#Create dislikes table (Rasmus)
 CREATE TABLE IF NOT EXISTS dislikes(
-	dislikeID INT(10) NOT NULL AUTO_INCREMENT,
+    dislikeID INT(10) NOT NULL AUTO_INCREMENT,
     postID INT(10) NOT NULL,
     personID INT(10) NOT NULL,
     timestampDislikes TIMESTAMP NOT NULL,
@@ -86,10 +86,10 @@ CREATE TABLE IF NOT EXISTS dislikes(
     FOREIGN KEY (personID) REFERENCES person(personID)
 );
 
-#Create comments table
+#Create comments table (Rasmus)
 CREATE TABLE IF NOT EXISTS comments(
-	commentID INT(10) NOT NULL AUTO_INCREMENT,
-	postID INT(10) NOT NULL,
+    commentID INT(10) NOT NULL AUTO_INCREMENT,
+    postID INT(10) NOT NULL,
     personID INT(10) NOT NULL,
     commentText VARCHAR(10000) NOT NULL,
     PRIMARY KEY (commentID),
