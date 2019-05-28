@@ -18,6 +18,7 @@ public class UserMessageRepo {
 
     //Method to get all private messages and senders name
     public List<PrivateMessage> getAllPrivateMessages(int personID){
+        // beneath is there statement to make a join between the person table and the private_messages table
         String sql = "SELECT person.personUsername, fromUserID, headline,\n" +
                 "\ttimestampPrivateMessage FROM private_messages\n" +
                 "\tFULL JOIN  person ON  fromUserID = personID  \n" +
@@ -28,7 +29,7 @@ public class UserMessageRepo {
         return privateMessagesList;
     }
 
-    // Method to read a message
+    // Method to read a message where it use a parameter privateMessage ID
     public PrivateMessage readPrivateMessage(int privateMessageID){
         String sql = "SELECT * FROM private_message WHERE privateMessageID = ?";
         RowMapper<PrivateMessage> rowMapper = new BeanPropertyRowMapper<>(PrivateMessage.class);

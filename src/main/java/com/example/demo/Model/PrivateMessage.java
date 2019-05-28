@@ -45,7 +45,7 @@ public class PrivateMessage {
         this.isRead = isRead;
     }
 
-    // Constructor for the Full Join
+    // Constructor for the getAllPrivateMessages method all the information is needed to make the full join work
     public PrivateMessage(int privateMessageID, int toUserID, int fromUserID, String headline, String message, String timestampPrivateMessage, boolean isRead, int personID, String personUsername, String personPassword, String email, byte[] picture, String personDescription, int permission) {
         this.privateMessageID = privateMessageID;
         this.toUserID = toUserID;

@@ -192,6 +192,7 @@ public class UserActionController {
         return "userHome/newMessagePage";
     }
 
+    // Under construction...
     @PostMapping("/messagePage/{personID}")
     public String sendMessage(@PathVariable("personID") int personID, Person toUser, Person fromUser, PrivateMessage message, Model model){
 
