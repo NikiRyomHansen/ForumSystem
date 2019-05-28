@@ -6,23 +6,23 @@
     <link rel="stylesheet" type="text/css" href="/../userHomeCSS.css">
     <link rel="stylesheet" type="text/css" href="/../generalStyle.css">
 </head>
+<body style="background-color: #c5ebef">
 
     <header th:replace="navigation/headNavigation" :: header>
     </header>
 
-    <h1>The posts should be here</h1>
+    <h1>Posts in this group</h1>
 
     <td>
         <a th:href="@{'/createPost/'+${groupID}}">
             <button class="btn-createPost btn" id="btn-createPost">Create new post</button>
         </a>
     </td>
-<td>
-    <a th:href="@{'/joinGroup/'}">
-        <button class="btn-joinGroup btn" id="btn-joinGroup">Join Group</button>
-    </a>
-</td>
-
+    <td>
+        <a th:href="@{'/joinGroup/'}">
+            <button class="btn-joinGroup btn" id="btn-joinGroup">Join Group</button>
+        </a>
+    </td>
     <table>
         <thead>
             <tr>
@@ -51,9 +51,5 @@
             </tr>
         </tbody>
     </table>
-
-
-<body>
-
 </body>
 </html>

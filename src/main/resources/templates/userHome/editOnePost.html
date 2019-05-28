@@ -23,11 +23,12 @@
     <tbody>
         <form action="/editOnePost" method="post">
             <tr>
+                <!-- Hides the row and input, referencing the postID without showing the user -->
                 <td style="display:none;"><input type="hidden" name="postID" th:value="${post.postID}"></td>
                 <td><input type="text" name="headline" th:value="${post.headline}"></td>
                 <!--We would like to use the textarea tag here, but we can't handle the th:value when using it-->
-                <td><input type="text" name="textField" th:value="${post.textField}"></td>
-                <td><input type="submit" id="btn-editOnePostSubmit" value="Update post"></td>
+                <td><textarea rows="6" cols="70" type="text" name="textField" th:text="${post.textField}"></textarea></td>
+                <td><input class="btn-editOnePostSubmit btn" type="submit" id="btn-editOnePostSubmit" value="Update post"></td>
             </tr>
         </form>
     </tbody>

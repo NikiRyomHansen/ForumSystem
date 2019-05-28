@@ -71,20 +71,21 @@ public class UserActionController {
         return "redirect:/";
     }
 
-    //redirects to the editOnePost html page to be able to edit the post - Niki
+    //Requests a GetMapping to be able to edit the post - Niki
     @GetMapping("/editOnePost/{postID}")
     public String editOnePost(@PathVariable("postID") int postID, Model model) {
         model.addAttribute("post", userPostService.viewOnePost(postID));
         return "userHome/editOnePost";
     }
 
-    //Sends a Post request to the web application to edit the post table in the database
+    //Sends a Post request to the web application to edit the post table - Niki
     @PostMapping("/editOnePost")
     public String editOnePost(@ModelAttribute Post post) {
         userPostService.editPost(post.getPostID(), post);
         return "redirect:/";
     }
 
+    //Sends a GetMapping request to delete a Post from the post table - Niki
     @GetMapping("/deletePost/{postID}")
     public String deletePost(@PathVariable("postID") int postID) {
         userPostService.deletePost(postID);
@@ -100,17 +101,17 @@ public class UserActionController {
 
     //TODO: Add the createPost method to this controller so that any User/Person can create a post
 
-    //open a new window that has all the needed information to create a Person in the person table - Khoi
+    //open a new window that has all the needed information to create a Person - Khoi, Niki
     @GetMapping("/createUserWindow")
     public String createUserWindow(){
         return "userHome/createUserWindow";
     }
 
-    //Create a Person in the person table
+    //Create a Person in the person table - Niki, Khoi
     @PostMapping("/createUserWindow")
     public String createUserWindow(@ModelAttribute Person person) {
         userCreateService.createUserWindow(person);
-        return "adminHome/frontPage";
+        return "redirect:/";
     }
 
     //Returns the frontpage, when the button is pressed

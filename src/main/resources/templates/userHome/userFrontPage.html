@@ -9,6 +9,7 @@
 </head>
 <body style="background-color: #c5ebef">
 
+    <!-- A thymeleaf reference to the below URL which contains the navigationbar HTML code -->
     <header th:replace="navigation/headNavigation" :: header>
 
     </header>
@@ -28,18 +29,26 @@
             </tr>
         </thead>
         <tbody>
+        <!-- iterating through the post table, referencing the String provided in the controller -->
             <tr th:each="post: ${postList}">
                 <td th:text="${post.headline}" />
                 <td th:text="${post.textField}" />
                 <td th:text="${post.postDate}" />
                 <td th:text="${post.changedDate}" />
                 <td id="userFrontPageButtons">
-                    <p><a th:href="@{'/editOnePost/'+${post.postID}}">
+                    <!-- Thymeleaf hyperlink reference to the URL provided the controller,
+                         ${post.postID} is a reference to the table post and the postID in that table -->
+                    <p>
+                        <a th:href="@{'/editOnePost/'+${post.postID}}">
                         <button class="btn-editOnePost btn" id="btn-editOnePost">Edit post</button>
-                    </a></p>
-                    <p><a th:href="@{'/deletePost/'+${post.postID}}">
+                        </a>
+                    </p>
+                    <!-- paragraph on the buttons is used for easier styling (CSS) -->
+                    <p>
+                        <a th:href="@{'/deletePost/'+${post.postID}}">
                         <button class="btn-deletePost btn" id="btn-deletePost">Delete post</button>
-                    </a></p>
+                        </a>
+                    </p>
                 </td>
             </tr>
         </tbody>

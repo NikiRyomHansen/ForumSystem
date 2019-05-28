@@ -14,7 +14,7 @@ public class UserCreateRepo {
     @Autowired
     JdbcTemplate template;
 
-    //Method to CreateUser - Khoi, Niki
+    //SQL statement to create a new user in the Person table - Khoi, Niki
     public Person createUserWindow(Person person) {
         String sql = "INSERT INTO person (personUsername, personPassword, email, picture, personDescription, " +
                 "permission)" +
@@ -24,6 +24,7 @@ public class UserCreateRepo {
         return null; // The method needs a return statement
 
     }
+
 
     public Person login(Person person) {
         String sql = "SELECT * FROM person " +

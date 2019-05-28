@@ -1,0 +1,44 @@
+div{
+    text-align:center;
+}
+
+
+input {
+    display:inline-block;
+    margin-top: 2%;
+    padding: 1%;
+    margin-right: 39%;
+}
+
+label {
+    float: left;
+    font-size: larger;
+    padding-left: 30%;
+    margin-top: 2%;
+    width: 5%;
+    margin-left: 10%;
+}
+
+textarea{
+    margin-top: 2%;
+    margin-right: 29%;
+    padding: 1%;
+}
+
+.btn {
+    border: none;
+    color: white;
+    padding: 1% 10px;
+    text-align: center;
+    background-color: green;
+    width: 13%;
+    margin: auto;
+    margin-top: 1%;
+}
+.btn:hover{
+    box-shadow: 2px 2px 2px #888888;
+}
+
+#btn-createUserWindowReset{
+    background-color: red;
+}

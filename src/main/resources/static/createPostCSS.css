@@ -12,8 +12,10 @@ label {
     width: 13%;
 }
 
+#inputCreatePostTitle{
+}
+
 #postInputTextField{
-    padding-top: 2%;
     margin-top: 2%;
 }
 

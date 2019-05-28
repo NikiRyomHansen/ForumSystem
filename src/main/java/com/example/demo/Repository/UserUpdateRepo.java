@@ -10,7 +10,7 @@ public class UserUpdateRepo {
     @Autowired
     JdbcTemplate template;
 
-    //SQL Statement to update a Person in the person table using personID - Niki
+    //SQL Statement to update a Person in the person table - Niki
     public Person updatePerson(int personID, Person person) {
         String sql = "UPDATE person SET personUsername = ?, email = ?, personDescription = ?" +
                 "     WHERE personID = ?";

@@ -7,13 +7,18 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-@Repository
+/*
+This class contains all the SQL statements related to User actions performed on Post related tables
+in our database.
+ */
+
+@Repository //Uses the PostAction interface
 public class UserPostRepo implements PostAction {
     @Autowired
     JdbcTemplate template;
 
     /*Deletes a post, deletes each child row where postID = ? so there will be no constraints
-    concerning foreign keys when deleting the Post*/
+    concerning foreign keys when deleting the Post - Niki, Rasmus*/
     @Override
     public Boolean deletePost(int postID) {
         String sqlDislikes = "DELETE FROM dislikes WHERE postID = ?";
@@ -28,7 +33,7 @@ public class UserPostRepo implements PostAction {
         return template.update(sqlPost, postID) > 0;
     }
 
-    //Method to edit a post
+    //SQL statement to edit a post - Niki
     @Override
     public Post editPost(int postID, Post post) {
         String sql = "UPDATE post SET changedDate = NOW(), headline = ?, textField = ? " +
@@ -37,7 +42,7 @@ public class UserPostRepo implements PostAction {
         return null;
     }
 
-    //Method to create a new post
+    //SQL statement to create a new post - Niki
     @Override
     public Post createPost(Post post, Person person) {
         String sql = "INSERT INTO post (personID, belongsToGroup, postDate, changedDate, headline, textField)" +
@@ -47,7 +52,7 @@ public class UserPostRepo implements PostAction {
         return null;
     }
 
-    //Method to view one post by postID
+    //SQL statement to view a single post by postID - Niki
     @Override
     public Post viewOnePost(int postID) {
         String sql = "SELECT * FROM post WHERE postID = ?";

@@ -3,29 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Creating new user</title>
+    <link rel="stylesheet" type="text/css" href="createUserCSS.css">
 </head>
-<body>
+<body style="background-color: #c5ebef">
 
-
+    <div>
     <h1>New user creation</h1>
 
-    <form action="/createUserWindow" method="post">
-        <label>Username: </label>
-        <input type="text" name="personUsername"/>
-        <label>Password: </label>
-        <input type="text" name="personPassword"/>
-        <label>E-mail: </label>
-        <input type="text" name="email"/>
-        <label>Profile picture (Optional)</label>
-        <input type="file" name="picture" accept="image/*">
-        <label>Profile description (Optional)</label>
-        <textarea rows="6" cols="50" type="text" name="personDescription"></textarea>
 
-        <input style="color: black" type="submit" value="Confirm"/>
-        <input style="color: red" type="submit" value="Cancel"/>
-
-
-    </form>
+        <form action="/createUserWindow" method="post">
+            <label>Username: </label>
+            <input type="text" name="personUsername"/>
+            <br>
+            <label>Password: </label>
+            <input type="text" name="personPassword"/>
+            <br>
+            <label>E-mail: </label>
+            <input type="text" name="email"/>
+            <br>
+            <label>Profile description (Optional)</label>
+            <textarea rows="6" cols="50" type="text" name="personDescription"></textarea>
+            <br>
+            <input class="btn" type="submit" value="Confirm"/>
+            <br>
+            <input class="btn" id="btn-createUserWindowReset" type="reset" value="Cancel"/>
+        </form>
+    </div>
 
 </body>
 </html>

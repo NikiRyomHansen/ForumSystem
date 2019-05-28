@@ -5,12 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-@Repository
+@Repository //Uses the PostAction interface
 public class AdminPostRepo implements PostAction {
     @Autowired
     JdbcTemplate template;
 
-    //Implementing methods from PostAction interface
+
 
     @Override
     public Boolean deletePost(int postID) {
@@ -22,7 +22,7 @@ public class AdminPostRepo implements PostAction {
         return null;
     }
 
-    //Method to create a new post
+    //SQL statement to create a new post
     @Override
     public Post createPost(Post post, Person person) {
         String sql = "INSERT INTO post (personID, postDate, changedDate, headline, textField)" +

@@ -14,15 +14,21 @@
     <!-- this the html for the top navigation bar made with a list, its id name in the ccs stylesheet is topnav-->
     <header  id="topnav">
         <ul>
+            <li id="rightHome" class="topNav" >
+                <a th:href="@{'/userFrontPage/'+${personID}}"> HOME </a>
+            </li>
 
-            <li id="rightHome" class="topNav" ><a th:href="@{'/userFrontPage/'+${personID}}"> HOME </a></li>
+            <li id="leftLogOut" class="topNav">
+                <a th:href="@{/}"> LOG OUT </a>
+            </li>
 
-            <li id="leftLogOut" class="topNav"><a th:href="@{/}"> LOG OUT </a></li>
+            <li id="theSupport" class="topNav">
+                <a> SUPPORT </a>
+            </li>
 
-
-            <li id="theSupport" class="topNav"><a> SUPPORT </a></li>
-
-            <li id="theNotification" class="topNav"><a> NOTIFICATION </a></li>
+            <li id="theNotification" class="topNav">
+                <a> NOTIFICATION </a>
+            </li>
         </ul>
     </header>
 
@@ -34,31 +40,36 @@
                     <button class="btn-viewOnePerson btn" id="btn-viewOnePerson">Profile</button>
                 </a>
             </li>
-            <li><a>picture</a></li>
-            <li><a>respect</a></li>
-            <li><a>rating</a></li>
+            <li>
+                <a>picture</a>
+            </li>
+            <li>
+                <a>respect</a>
+            </li>
+            <li>
+                <a>rating</a>
+            </li>
             <li>
                 <a th:href="@{'/messagePage/'+${personID}}">
-                    <button class="btn-viewMessagePage" id="btn-viewMessagePage">Messages</button>
+                    <button class="btn-viewMessagePage btn" id="btn-viewMessagePage">Messages</button>
                 </a>
             </li>
 
             <hr>
 
-            <li><a><p style="color: white">Groups:</p></a></li>
+            <li>
+                <a>
+                    <p style="color: white">Groups:</p>
+                </a>
+            </li>
 
             <li>
                 <a th:href="@{'/groups/'+${personID}}">
                     <button class="btn-groups btn" id="btn-groups">See all groups</button>
                 </a>
             </li>
-
         </ul>
-
-
     </nav>
-
-    <!-- ------------------------- -->
 
 </body>
 </html>

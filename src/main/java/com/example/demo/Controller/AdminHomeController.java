@@ -3,6 +3,7 @@ package com.example.demo.Controller;
 import com.example.demo.Model.Person;
 import com.example.demo.Model.Post;
 import com.example.demo.Repository.AdminPostRepo;
+import com.example.demo.Service.AdminPostService;
 import com.example.demo.Service.PostService;
 import com.example.demo.Service.UserViewService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class AdminHomeController {
     @Autowired
     PostService postService;
     @Autowired
-    AdminPostRepo adminPostRepo;
+    AdminPostService adminPostService;
     @Autowired
     UserViewService userViewService;
 
@@ -32,19 +33,12 @@ public class AdminHomeController {
         return "adminHome/frontPage";
     }
 
-    /*//Request a GetMapping to redirect to a new html file to create a new post - Niki
-    @GetMapping("/createPost")
-    public String createPost() {
-        return "adminHome/createPost";
-    }*/
-
     //Request a PostMapping to create a new post - Niki
-    /*//TODO: Not sure why this works, it should be AdminPostService - look into later (NIKI)
     @PostMapping("/frontPage/createPost")
-    public String createPost(@ModelAttribute Post post, @ModelAttribute Person person, int personID) {
-        adminPostRepo.createPost(post, person, personID);
+    public String createPost(@ModelAttribute Post post, @ModelAttribute Person person) {
+        adminPostService.createPost(post, person);
         return "redirect:/";
-    }*/
+    }
 
     //Send a Get request to show all users in a list. - Niki
     @GetMapping("/viewListOfPerson")

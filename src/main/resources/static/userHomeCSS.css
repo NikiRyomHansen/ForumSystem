@@ -1,6 +1,7 @@
 .btn {
     border: none;
     color: white;
+    /*top and bottom padding is 7px, right and left padding is 10px*/
     padding: 7px 10px;
     text-align: center;
     background-color: green;
@@ -24,14 +25,6 @@
     background-color: red;
 }
 
-#btn-editOnePost{
-
-}
-
-#btn-deletePost{
-
-}
-
 #btn-createPost{
     margin-top: 2%;
     padding: 1%;
@@ -39,13 +32,15 @@
 }
 
 #userFrontPageButtons{
-    padding-left: 5%;
+    width: 15%;
 }
 
+/*Display all paragraphs on a straight line*/
 p{
     display:inline;
 }
 
+/*Set border-collapse: collapse there is no space in between the table border and each cell */
 table{
     border-collapse: collapse;
     width: 100%;
@@ -62,6 +57,7 @@ td, th {
     padding: 1.5%;
 }
 
+/*Set even table rows to have this color*/
 tr:nth-child(even){
     background-color: #7ec4cc;
 }
