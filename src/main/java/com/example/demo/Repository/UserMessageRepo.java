@@ -29,7 +29,7 @@ public class UserMessageRepo {
     }
 
     // Method to read a message
-    public PrivateMessage readPrivateMessage(int privateMessageID, Person person){
+    public PrivateMessage readPrivateMessage(int privateMessageID){
         String sql = "SELECT * FROM private_message WHERE privateMessageID = ?";
         RowMapper<PrivateMessage> rowMapper = new BeanPropertyRowMapper<>(PrivateMessage.class);
         PrivateMessage privateMessage = template.queryForObject(sql, rowMapper, privateMessageID);
