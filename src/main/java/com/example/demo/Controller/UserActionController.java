@@ -181,10 +181,18 @@ public class UserActionController {
         return "userHome/messagePage";
     }
 
-    @GetMapping("/newMessage")
-    public String goTONewMessagePage(){
+    // Go to NewMessagePage @GetMapping
+    @GetMapping("/newMessagePage/{personID}")
+    public String goToNewMessagePage(@PathVariable("personID") int personID, Model model){
+        model.addAttribute("person", userViewService.viewOnePerson(personID));
         return "userHome/newMessagePage";
     }
 
+    @PostMapping("/messagePage/{personID}")
+    public String sendMessage(@PathVariable("personID") int personID, Person toUser, Person fromUser, PrivateMessage message, Model model){
+
+
+        return "userHome/messagePage";
+    }
 
 }
