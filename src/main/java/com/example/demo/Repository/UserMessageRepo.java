@@ -32,11 +32,7 @@ public class UserMessageRepo {
     public PrivateMessage readPrivateMessage(int privateMessageID, Person person){
         String sql = "SELECT * FROM private_message WHERE privateMessageID = ?";
         RowMapper<PrivateMessage> rowMapper = new BeanPropertyRowMapper<>(PrivateMessage.class);
-        // makes the message read
         PrivateMessage privateMessage = template.queryForObject(sql, rowMapper, privateMessageID);
-        sql = "UPDATE privateMessage SET isRead = 1 WHERE privateMessageID = ?";
-        template.update(sql, person.getPersonID());
-
         return privateMessage;
     }
 
