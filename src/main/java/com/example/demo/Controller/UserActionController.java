@@ -85,6 +85,12 @@ public class UserActionController {
         return "redirect:/";
     }
 
+    @GetMapping("/deletePost/{postID}")
+    public String deletePost(@PathVariable("postID") int postID) {
+        userPostService.deletePost(postID);
+        return "redirect:/";
+    }
+
     //Send a Post request to update one Person in the Person table - Niki
     @PostMapping("/updatePerson")
     public String updatePerson(@ModelAttribute Person person) {
@@ -179,10 +185,18 @@ public class UserActionController {
         return "userHome/messagePage";
     }
 
-    @GetMapping("/newMessage")
-    public String goTONewMessagePage(){
+    // Go to NewMessagePage @GetMapping
+    @GetMapping("/newMessagePage/{personID}")
+    public String goToNewMessagePage(@PathVariable("personID") int personID, Model model){
+        model.addAttribute("person", userViewService.viewOnePerson(personID));
         return "userHome/newMessagePage";
     }
 
+    @PostMapping("/messagePage/{personID}")
+    public String sendMessage(@PathVariable("personID") int personID, Person toUser, Person fromUser, PrivateMessage message, Model model){
+
+
+        return "userHome/messagePage";
+    }
 
 }

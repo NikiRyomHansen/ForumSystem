@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" type="text/css" href="/../generalStyle.css">
 </head>
 <body>
 
@@ -10,7 +11,7 @@
 
 </header>
 
-   <!-- <h1><button href="/newMessage"> New Message </button></h1> -->
+<h1><a th:href="@{'/newMessagePage/'+${personID}}"><button class="btn-groups btn" id="btn-groups"> New Message </button></a></h1>
 
     <table>
         <thead>
@@ -21,12 +22,12 @@
             </tr>
         </thead>
         <tbody>
-           <!-- <tr th:each="privateMessage: ${privateMessage}">
+                <tr th:each="privateMessage: ${privateMessage}">
                 <td th:text="${privateMessage.personUsername}"></td>
                 <td th:text="${privateMessage.headline}"></td>
                 <td th:text="${privateMessage.timestampPrivateMessage}"></td>
 
-            -->
+
             </tr>
 
 
