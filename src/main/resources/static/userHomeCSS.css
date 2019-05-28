@@ -25,17 +25,26 @@
 }
 
 #btn-editOnePost{
-    width: 40%;
+
 }
 
 #btn-deletePost{
-    width: 40%;
+
+}
+
+#btn-createPost{
+    margin-top: 2%;
+    padding: 1%;
+    width: 15.5%;
+}
+
+#userFrontPageButtons{
+    padding-left: 5%;
 }
 
 p{
-    display: inline;
+    display:inline;
 }
-
 
 table{
     border-collapse: collapse;
@@ -44,15 +53,15 @@ table{
 }
 
 th{
-    background-color: lightblue;
+    background-color: #4a9fa8;
 }
 
 td, th {
     border: 1px solid black;
     text-align: left;
-    padding: 2%;
+    padding: 1.5%;
 }
 
 tr:nth-child(even){
-    background-color: lightgrey;
+    background-color: #7ec4cc;
 }

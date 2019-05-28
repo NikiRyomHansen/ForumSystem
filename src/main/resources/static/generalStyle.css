@@ -29,8 +29,17 @@ CSS to the top navigation bar
     float: left;
 }
 
+a:visited {
+    color: white;
+}
+
+a:link {
+    color: white;
+}
+
 #rightHome:hover{
-    background-color: limegreen;
+    background-color: green;
+    color: white;
 }
 
 #theSupport {
@@ -38,7 +47,7 @@ CSS to the top navigation bar
 }
 
 #theSupport:hover{
-    background-color: limegreen;
+    background-color: green;
 }
 
 #theNotification {
@@ -46,11 +55,12 @@ CSS to the top navigation bar
 }
 
 #theNotification:hover{
-    background-color: limegreen;
+    background-color: green;
 }
 
 #leftLogOut {
     float:right;
+    color: white;
 }
 
 #leftLogOut:hover{

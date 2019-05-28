@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="/../createPostCSS.css">
     <link rel="stylesheet" type="text/css" href="/../generalStyle.css">
 </head>
-<body>
+<body style="background-color: #c5ebef">
 
 <header th:replace="navigation/headNavigation" :: header>
 
@@ -20,19 +20,17 @@
 
             <input type="hidden" th:value="${person.personID}" name="personID">
             <br>
-            <b><label>belongsToGroup</label></b>
+            <b><label id="createPostBelongsToGroup">belongsToGroup: </label></b>
             <input type="text" name="belongsToGroup">
             <br>
-            <b><label>Title</label></b>
+            <b><label>Title: </label></b>
             <input type="text" name="headline">
             <br>
-            <b><label>Post text</label></b>
+            <b><label>Post text: </label></b>
             <textarea rows="6" cols="50" id="postInputTextField" name="textField"></textarea>
-
+            <br>
             <input type="submit" id="btn-createPostSubmit" value="Create post">
         </form>
-
-
 </div>
 
 </body>

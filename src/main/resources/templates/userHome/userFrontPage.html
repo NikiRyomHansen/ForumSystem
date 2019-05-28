@@ -33,7 +33,7 @@
                 <td th:text="${post.textField}" />
                 <td th:text="${post.postDate}" />
                 <td th:text="${post.changedDate}" />
-                <td>
+                <td id="userFrontPageButtons">
                     <p><a th:href="@{'/editOnePost/'+${post.postID}}">
                         <button class="btn-editOnePost btn" id="btn-editOnePost">Edit post</button>
                     </a></p>

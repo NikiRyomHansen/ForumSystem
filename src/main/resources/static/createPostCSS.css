@@ -1,26 +1,42 @@
+
 input {
     display:inline-block;
-    margin-top: 5px;
-    margin-bottom: 5px;
-
+    margin-top: 2%;
+    padding: 1%;
 }
 
 label {
-    display:inline-block;
     float: left;
-    padding-top: 5px;
-    width: 10%;
+    font-size: larger;
+    margin-top: 2%;
+    width: 13%;
+}
+
+#postInputTextField{
+    padding-top: 2%;
+    margin-top: 2%;
 }
 
 #btn-createPostSubmit {
     border: none;
     color: white;
+    padding: 1.5%;
+    text-align: center;
+    background-color: green;
+    margin-left: 13%;
+    width: 20%;
+}
+#btn-createPostSubmit:hover{
+    box-shadow: 2px 2px 2px #888888;
+}
+
+.btn {
+    border: none;
+    color: white;
     padding: 7px 10px;
     text-align: center;
     background-color: green;
-    margin-left: 50px;
-    margin-top: 50px;
 }
-#btn-createPostSubmit:hover{
+.btn:hover{
     box-shadow: 2px 2px 2px #888888;
 }

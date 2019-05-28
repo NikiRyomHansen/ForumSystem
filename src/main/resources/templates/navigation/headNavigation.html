@@ -37,16 +37,21 @@
             <li><a>picture</a></li>
             <li><a>respect</a></li>
             <li><a>rating</a></li>
-            <li><a th:href="@{'/messagePage/'+${personID}}"><button class="btn-viewMessagePage" id="btn-viewMessagePage">Messages</button></a></li>
+            <li>
+                <a th:href="@{'/messagePage/'+${personID}}">
+                    <button class="btn-viewMessagePage" id="btn-viewMessagePage">Messages</button>
+                </a>
+            </li>
 
             <hr>
 
-            <p style="color: white">Groups:</p>
-            <br/>
+            <li><a><p style="color: white">Groups:</p></a></li>
 
-            <a th:href="@{'/groups/'+${personID}}">
-                <button class="btn-groups btn" id="btn-groups">See all groups</button>
-            </a>
+            <li>
+                <a th:href="@{'/groups/'+${personID}}">
+                    <button class="btn-groups btn" id="btn-groups">See all groups</button>
+                </a>
+            </li>
 
         </ul>
 
