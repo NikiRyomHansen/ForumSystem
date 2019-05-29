@@ -13,5 +13,4 @@ public class Admin extends Person {
         setPermission(1);
     }
 
-
 }

@@ -78,7 +78,8 @@ public class UserActionController {
         return "userHome/joinGroup";
     }
 
-    // Updates the database, so the user is no longer following group
+    // Yet to be implemented!
+    // Updates the database, so the user is no longer following the group
     // (leaveGroup)
 
     //open a new window that has all the needed information to create a Person - Khoi, Niki
@@ -115,6 +116,13 @@ public class UserActionController {
         return "redirect:/";
     }
 
+    // Presents the user with the specific post and its comments - Rasmus
+    @GetMapping("/individualPost/{postID}")
+    public String viewPost(@PathVariable("postID") int postID, Model model) {
+        model.addAttribute("comment", postService.fetchAllCommentsOnPost(postID));
+        return "userHome/individualPost";
+    }
+
     //Requests a GetMapping to be able to edit the post - Niki
     @GetMapping("/editOnePost/{postID}")
     public String editOnePost(@PathVariable("postID") int postID, Model model) {
@@ -142,15 +150,13 @@ public class UserActionController {
         return "redirect:/";
     }
 
-    //TODO: Add the createPost method to this controller so that any User/Person can create a post
-
-
+/*
     //Returns the frontpage, when the button is pressed
     @GetMapping("/userFrontPage")
     public String goToFrontPage() {
         return "userHome/userFrontPage";
     }
-
+*/
 
     // (postToGroup)
 
@@ -174,12 +180,6 @@ public class UserActionController {
         return "redirect:/";
     }
 
-    // Presents the user with the specific post and its comments - Rasmus
-    @GetMapping("/individualPost/{postID}")
-    public String viewPost(@PathVariable("postID") int postID, Model model) {
-        model.addAttribute("comment", postService.fetchAllCommentsOnPost(postID));
-        return "userHome/individualPost";
-    }
 
     // Return the messages page
     @GetMapping("/messagePage/{personID}")
@@ -199,7 +199,7 @@ public class UserActionController {
 
     // Under construction...
     @PostMapping("/messagePage/{personID}")
-    public String sendMessage(@PathVariable("personID") int personID, Person toUser, Person fromUser, PrivateMessage message, Model model){
+    public String sendPrivateMessage(@PathVariable("personID") int personID, Person toUser, Person fromUser, PrivateMessage message, Model model){
 
 
         return "userHome/messagePage";

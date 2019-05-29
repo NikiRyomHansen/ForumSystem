@@ -27,7 +27,7 @@ public class AdminHomeController {
 
     //Request a GetMapping to the front page showing all posts. - Niki
     @GetMapping("/frontPage")
-    public String frontPage(Model model) {
+    public String adminIndex(Model model) {
         List<Post> postList = postService.fetchAll();
         model.addAttribute("postList", postList);
         return "adminHome/frontPage";

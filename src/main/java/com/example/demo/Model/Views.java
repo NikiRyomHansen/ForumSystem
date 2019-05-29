@@ -13,6 +13,7 @@ public class Views {
     java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     private int viewsID;
+    private int postID;
     private Person person;
     private String timestamp = sdf.format(dt);
 
@@ -20,20 +21,29 @@ public class Views {
     public Views() {
     }
 
-    //Constructor containing all fields
-    public Views(int viewsID, Person person, String timestamp) {
+    // Default constructor
+    public Views(int viewsID, int postID, Person person, String timestamp) {
         this.viewsID = viewsID;
+        this.postID = postID;
         this.person = person;
         this.timestamp = timestamp;
     }
 
-    // Accessors and Mutators
+    // Accesors and Mutators
     public int getViewsID() {
         return viewsID;
     }
 
     public void setViewsID(int viewsID) {
         this.viewsID = viewsID;
+    }
+
+    public int getPostID() {
+        return postID;
+    }
+
+    public void setPostID(int postID) {
+        this.postID = postID;
     }
 
     public Person getPerson() {
