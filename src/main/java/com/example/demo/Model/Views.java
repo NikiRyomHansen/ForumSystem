@@ -27,6 +27,7 @@ public class Views {
         this.timestamp = timestamp;
     }
 
+    // Accessors and Mutators
     public int getViewsID() {
         return viewsID;
     }

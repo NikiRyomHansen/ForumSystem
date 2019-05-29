@@ -18,6 +18,8 @@ import java.util.List;
 
 @Controller
 public class UserActionController {
+
+    //The following lines makes sure that our Service classes are connected to our controller.
     @Autowired
     UserCreateService userCreateService;
     @Autowired
@@ -41,65 +43,43 @@ public class UserActionController {
         return "userHome/loginPage";
     }
 
-    //Send a Get request to view one person from the person table by personID - Niki
-    @GetMapping("/viewOnePerson/{personID}")
-    public String viewOnePerson(@PathVariable("personID") int personID, Model model) {
-        model.addAttribute("person", userViewService.viewOnePerson(personID));
-        return "userHome/viewOnePerson";
-    }
-
     //Shows the userFrontPage with ALL posts  and takes a personID along in the parameter - Niki
     @GetMapping("/userFrontPage/{personID}")
-    public String goToUserFrontPage(@PathVariable("personID") int personID, Model model) {
+    public String userIndex(@PathVariable("personID") int personID, Model model) {
         model.addAttribute("person", userViewService.viewOnePerson(personID));
         List<Post> postList = postService.fetchAll();
         model.addAttribute("postList", postList);
         return "userHome/userFrontPage";
     }
 
-    //Request a GetMapping to redirect to a new html file to create a new post - Niki
-    @GetMapping("/createPost/{personID}")
-    public String createPost(@PathVariable("personID") int personID, Model model) {
-        model.addAttribute("person", userViewService.viewOnePerson(personID));
-        return "userHome/createPost";
+    //Takes the user to the groups page (Rasmus)
+    @GetMapping("/groups/{personID}")
+    public String retrieveAllGroups(@PathVariable("personID") int personID, Model model) {
+        List<Group> groupList = userGroupService.retrieveAllGroups();
+        model.addAttribute("Groups", groupList);
+        return "userHome/groups";
     }
 
-    //Request a PostMapping to create a new post - Niki
-    @PostMapping("/userFrontPage/createPost/")
-    public String createPost(@ModelAttribute Post post, @ModelAttribute Person person) {
-        userPostService.createPost(post, person);
-        return "redirect:/";
+    // Presents the user with a specific group and its posts - Rasmus
+    @GetMapping("/groupPosts/{groupID}")
+    public String viewGroup(@PathVariable("groupID") int groupID, Model model, @ModelAttribute Group group) {
+        model.addAttribute("group", userGroupService.viewGroup(group));
+        return "userHome/groupPosts";
     }
 
-    //Requests a GetMapping to be able to edit the post - Niki
-    @GetMapping("/editOnePost/{postID}")
-    public String editOnePost(@PathVariable("postID") int postID, Model model) {
-        model.addAttribute("post", userPostService.viewOnePost(postID));
-        return "userHome/editOnePost";
+    // Presents the user with the joinGroup page - Rasmus
+    @GetMapping("/joinGroup")
+    public String joinGroup() { return "userHome/groups"; }
+
+    //  Updates the database with the user as a follower of a specific group - Rasmus
+    @PostMapping("/joinGroup/{groupID}")
+    public String joinGroup(@PathVariable("groupID") int groupID, @ModelAttribute Person person, Model model) {
+        model.addAttribute("joinGroup", userGroupService.joinGroup(groupID, person));
+        return "userHome/joinGroup";
     }
 
-    //Sends a Post request to the web application to edit the post table - Niki
-    @PostMapping("/editOnePost")
-    public String editOnePost(@ModelAttribute Post post) {
-        userPostService.editPost(post.getPostID(), post);
-        return "redirect:/";
-    }
-
-    //Sends a GetMapping request to delete a Post from the post table - Niki
-    @GetMapping("/deletePost/{postID}")
-    public String deletePost(@PathVariable("postID") int postID) {
-        userPostService.deletePost(postID);
-        return "redirect:/";
-    }
-
-    //Send a Post request to update one Person in the Person table - Niki
-    @PostMapping("/updatePerson")
-    public String updatePerson(@ModelAttribute Person person) {
-        userUpdateService.updatePerson(person.getPersonID(), person);
-        return "redirect:/";
-    }
-
-    //TODO: Add the createPost method to this controller so that any User/Person can create a post
+    // Updates the database, so the user is no longer following group
+    // (leaveGroup)
 
     //open a new window that has all the needed information to create a Person - Khoi, Niki
     @GetMapping("/createUserWindow")
@@ -114,39 +94,63 @@ public class UserActionController {
         return "redirect:/";
     }
 
+    //Sends a Get request to view one person from the person table by personID - Niki
+    @GetMapping("/viewOnePerson/{personID}")
+    public String viewOnePerson(@PathVariable("personID") int personID, Model model) {
+        model.addAttribute("person", userViewService.viewOnePerson(personID));
+        return "userHome/viewOnePerson";
+    }
+
+    //Request a GetMapping to redirect to a new html file to create a new post - Niki, Rasmus
+    @GetMapping("/createPost/{personID}")
+    public String createPost(@PathVariable("personID") int personID, Model model) {
+        model.addAttribute("person", userViewService.viewOnePerson(personID));
+        return "userHome/createPost";
+    }
+
+    //Request a PostMapping to create a new post - Niki, Rasmus
+    @PostMapping("/userFrontPage/createPost/")
+    public String createPost(@ModelAttribute Post post, @ModelAttribute Person person) {
+        userPostService.createPost(post, person);
+        return "redirect:/";
+    }
+
+    //Requests a GetMapping to be able to edit the post - Niki
+    @GetMapping("/editOnePost/{postID}")
+    public String editOnePost(@PathVariable("postID") int postID, Model model) {
+        model.addAttribute("post", userPostService.viewOnePost(postID));
+        return "userHome/editOnePost";
+    }
+
+    //Sends a Post request to the web application to edit the post table in the database
+    @PostMapping("/editOnePost")
+    public String editOnePost(@ModelAttribute Post post) {
+        userPostService.editPost(post.getPostID(), post);
+        return "redirect:/";
+    }
+
+    @GetMapping("/deletePost/{postID}")
+    public String deletePost(@PathVariable("postID") int postID) {
+        userPostService.deletePost(postID);
+        return "redirect:/";
+    }
+
+    //Sends a Post request to update one Person in the Person table - Niki
+    @PostMapping("/updatePerson")
+    public String updatePerson(@ModelAttribute Person person) {
+        userUpdateService.updatePerson(person.getPersonID(), person);
+        return "redirect:/";
+    }
+
+    //TODO: Add the createPost method to this controller so that any User/Person can create a post
+
+
     //Returns the frontpage, when the button is pressed
     @GetMapping("/userFrontPage")
     public String goToFrontPage() {
         return "userHome/userFrontPage";
     }
 
-    //Takes the user to the groups page (Rasmus)
-    @GetMapping("/groups/{personID}")
-    public String retrieveAllGroups(@PathVariable("personID") int personID, Model model) {
-        List<Group> groupList = userGroupService.retrieveAllGroups();
-        model.addAttribute("Groups", groupList);
-        return "userHome/groups";
-    }
-    // Presents the user with a specific group and its posts (Rasmus)
-    @GetMapping("/groupPosts/{groupID}")
-    public String viewGroup(@PathVariable("groupID") int id, Model model, @ModelAttribute Group group) {
-        model.addAttribute("group", userGroupService.viewGroup(group));
-        return "userHome/groupPosts";
-    }
-
-    // Presents the user with the joinGroup page
-    @GetMapping("/joinGroup")
-    public String joinGroup() { return "userHome/groups"; }
-
-    //  Updates the database with the user as a follower of a specific group
-    @PostMapping("/joinGroup/{groupID}")
-    public String joinGroup(@PathVariable("groupID") int groupID, @ModelAttribute Person person, Model model) {
-        model.addAttribute("joinGroup", userGroupService.joinGroup(groupID, person));
-        return "userHome/joinGroup";
-    }
-
-    // Updates the database, so the user is no longer following group
-    // (leaveGroup)
 
     // (postToGroup)
 
@@ -156,30 +160,30 @@ public class UserActionController {
         return "userHome/createNewGroup";
     }
 
-    // Creates a new group with the information given by the user.
+    // Creates a new group with the information given by the user. - Rasmus
     @PostMapping("/createNewGroup")
     public String createGroup(@ModelAttribute Group group, Person person) {
         userGroupService.createGroup(group, person);
         return "redirect:/";
     }
 
-    // Deletes a group
+    // Deletes a group - Rasmus
     @GetMapping("/deleteGroup/{groupID}")
     public String deleteGroup(@PathVariable("groupID") int groupID, Model model) {
         model.addAttribute("deleteGroup", userGroupService.deleteGroup(groupID));
         return "redirect:/";
     }
 
-    // Presents the user with the specific post and its comments (Rasmus)
+    // Presents the user with the specific post and its comments - Rasmus
     @GetMapping("/individualPost/{postID}")
-    public String viewPost(@PathVariable("postID") int id, Model model) {
-        model.addAttribute("comment", postService.fetchAllCommentsOnPost(id));
+    public String viewPost(@PathVariable("postID") int postID, Model model) {
+        model.addAttribute("comment", postService.fetchAllCommentsOnPost(postID));
         return "userHome/individualPost";
     }
 
     // Return the messages page
     @GetMapping("/messagePage/{personID}")
-    public String goToMessagePage (@PathVariable("personID") int personID, Model model){
+    public String retrievePrivateMessages(@PathVariable("personID") int personID, Model model){
         List<PrivateMessage> privateMessage = userMessageService.getAllPrivateMessages(personID);
         model.addAttribute("privateMessage", privateMessage);
 
@@ -188,7 +192,7 @@ public class UserActionController {
 
     // Go to NewMessagePage @GetMapping
     @GetMapping("/newMessagePage/{personID}")
-    public String goToNewMessagePage(@PathVariable("personID") int personID, Model model){
+    public String createNewPrivateMessage(@PathVariable("personID") int personID, Model model){
         model.addAttribute("person", userViewService.viewOnePerson(personID));
         return "userHome/newMessagePage";
     }

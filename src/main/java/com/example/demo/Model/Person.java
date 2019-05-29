@@ -15,7 +15,7 @@ public class Person {
     private String email;
     private byte[] picture;
     private String personDescription;
-    private int permission; //TODO: Possibly add an if(permission==0) then user if 1 then admin. At least show as in html code
+    private int permission;
 
     //Empty Constructor
     public Person() {
@@ -42,6 +42,7 @@ public class Person {
         this.permission = permission;
     }
 
+    // Accessors and Mutators
     public int getPersonID() {
         return personID;
     }

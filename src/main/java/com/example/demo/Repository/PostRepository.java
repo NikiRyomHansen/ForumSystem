@@ -24,7 +24,7 @@ public class PostRepository {
 
     //Method to return every comment on a post. (Rasmus)
     public List<Comments> fetchAllCommentsOnPost(int id) {
-        String sql = "SELECT * FROM comments WHERE belongsToPost = ?";
+        String sql = "SELECT * FROM comments WHERE postID = ?";
         RowMapper<Comments> rowMapper = new BeanPropertyRowMapper<>(Comments.class);
         return template.query(sql, rowMapper, id);
     }

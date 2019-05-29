@@ -11,6 +11,7 @@ public class Likes {
     //The following two lines are used for when a date has to be read from the database.
     private java.util.Date dt = new java.util.Date();
     private java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
     private int likesID;
     private int postID;
     private Person person;

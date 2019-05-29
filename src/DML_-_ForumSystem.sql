@@ -30,7 +30,7 @@ VALUES (1, 1, 0, '2019-05-10 10:45:07'),
 
 #Insert values into post table (Rasmus)
 INSERT INTO post(belongsToGroup, personID, postDate, changedDate, headline, textField)
-VALUES (1, 1, '2019-05-5 10:12:33', '2019-05-10 10:12:07', 'Large boulder found on Faelleden', 'Have to climbed on it yet??'),
+VALUES (1, 1, '2019-05-5 10:12:33', '2019-05-10 10:12:07', 'Large boulder found on Faelleden', 'Have anyone climbed on it yet??'),
        (2, 2, '2019-05-6 14:00:00', null, 'Comments in CSS??', 'I cant seem to comment in CSS, how to I do this??'),
        (1, 2, '2019-05-24 10:00:00', null, 'Climbing is the new black', 'A new study shows that climbing is becoming increasingly popular'),
        (1, 4, '2019-05-10 15:33:12', null, 'Belay Partner needed', 'Hi here, im in need of an Belay Partner in the vinicity of Copenhagen. Anyone up for some climbing action?'),
@@ -83,8 +83,8 @@ VALUES (1, 1, '2019-05-11 10:45:00', 'I dislike this post, because it does not a
 #Insert values into comments table (Rasmus)
 INSERT INTO comments(personID, postID, commentText)
 VALUES (1, 1, 'I did a sick send the other day, mate!'),
-       (2, 1, 'I dont know where it is, can any guide me in the right direction?'),
-       (4, 1, 'It is right beside the two soccer fields, in the direction of the lake.Hope you find it, mate!'),
+       (2, 1, 'I dont know where it is, can anyone guide me in the right direction?'),
+       (4, 1, 'It is right beside the two soccer fields, in the direction of the lake. Hope you find it, mate!'),
        (3, 2, 'CSS uses block comments, just like the C-like languages. Use "/*" as the start and "*/" as the end'),
        (5, 8, 'Basically, we use encryption when we need the information for something, and use hashing, when we dont
         need the information for something specific.If we just need to compare two things - Like a provided password and

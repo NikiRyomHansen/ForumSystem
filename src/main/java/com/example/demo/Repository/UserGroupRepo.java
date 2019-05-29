@@ -44,7 +44,7 @@ public class UserGroupRepo implements GroupAction{
         return template.query(sql, rowMapper);
     }
 
-    // Method to join a specific group
+    // Method to join a specific group (Rasmus)
     @Override
     public boolean joinGroup(int groupID, Person person) {
         try {
@@ -60,7 +60,7 @@ public class UserGroupRepo implements GroupAction{
 
     }
 
-    // Method to leave a specific group
+    // Method to leave a specific group (Rasmus)
     @Override
     public boolean leaveGroup(Group group, Person person) {
         try {
@@ -72,10 +72,11 @@ public class UserGroupRepo implements GroupAction{
         }
     }
 
+    // Method to make a post to a specific Group
     @Override
     public boolean postToGroup(Group group, Person person) { return true;}
 
-    // Method to create a new Group
+    // Method to create a new Group (Rasmus)
     @Override
     public boolean createGroup(Group group, Person person) {
         try {
@@ -88,6 +89,7 @@ public class UserGroupRepo implements GroupAction{
         }
     }
 
+    // Method to delete a specific Group (Rasmus)
     @Override
     public boolean deleteGroup(int groupID) {
         try {
