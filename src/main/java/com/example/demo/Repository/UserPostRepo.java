@@ -45,9 +45,9 @@ public class UserPostRepo implements PostAction {
     //SQL statement to create a new post - Niki
     @Override
     public Post createPost(Post post, Person person) {
-        String sql = "INSERT INTO post (personID, groupID, postDate, changedDate, headline, textField)" +
+        String sql = "INSERT INTO post (personID, belongsToGroup, postDate, changedDate, headline, textField)" +
                 "VALUES(?, ?, ?, ?, ?, ?)";
-        template.update(sql, person.getPersonID(), post.getGroupID(), post.getPostDate(), post.getChangedDate(), post.getHeadline(),
+        template.update(sql, person.getPersonID(), post.getBelongsToGroup(), post.getPostDate(), post.getChangedDate(), post.getHeadline(),
                 post.getTextField());
         return null;
     }

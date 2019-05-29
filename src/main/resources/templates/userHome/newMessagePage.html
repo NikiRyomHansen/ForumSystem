@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/../createPostCSS.css">
     <link rel="stylesheet" type="text/css" href="/../generalStyle.css">
 </head>
-<body>
+<body style="background-color: #c5ebef">
 <header th:replace="navigation/headNavigation" :: header></header>
 
-    <Label> Receiver </Label> <input type="text" name="toName">
-    <Label> Headline </Label> <input type="text" name="headline">
-    <Label> Message </Label> <input type="text" name="message">
-
-
-
+    <Label> Receiver: </Label>
+    <input type="text" name="toName">
+    <br>
+    <Label> Headline: </Label>
+    <input type="text" name="headline">
+    <br>
+    <Label> Message: </Label>
+    <input type="text" name="message">
 
 </body>
 </html>

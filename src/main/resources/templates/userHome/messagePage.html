@@ -3,43 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" type="text/css" href="/../userHomeCSS.css">
     <link rel="stylesheet" type="text/css" href="/../generalStyle.css">
 </head>
-<body>
+<body style="background-color: #c5ebef">
 
 <header th:replace="navigation/headNavigation" :: header>
 
 </header>
 
 <!-- A button there goes to antoher page to create a message-->
-<h1><a th:href="@{'/newMessagePage/'+${personID}}"><button class="btn-groups btn" id="btn-groups"> New Message </button></a></h1>
+<h1>
+    <a th:href="@{'/newMessagePage/'+${personID}}">
+        <button class="btn-groups btn" id="btn-groups"> New Message </button>
+    </a>
+</h1>
 
 <!-- A table containing all the users messages -->
-    <table>
+    <table id="tableMessagePage">
         <thead>
             <tr>
-                <td>From</td>
-                <td>Headline</td>
-                <td>Date</td>
+                <th>From</th>
+                <th>Headline</th>
+                <th>Date</th>
             </tr>
         </thead>
         <tbody>
-                <tr th:each="privateMessage: ${privateMessage}">
-                <td th:text="${privateMessage.personUsername}"></td>
-                <td th:text="${privateMessage.headline}"></td>
-                <td th:text="${privateMessage.timestampPrivateMessage}"></td>
-
-
+            <tr th:each="privateMessage: ${privateMessage}">
+                <td th:text="${privateMessage.personUsername}" />
+                <td th:text="${privateMessage.headline}" />
+                <td th:text="${privateMessage.timestampPrivateMessage}" />
             </tr>
-
-
-
         </tbody>
-
-
-
-
     </table>
-
 </body>
 </html>

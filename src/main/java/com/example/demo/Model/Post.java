@@ -14,7 +14,7 @@ public class Post {
     java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     private int postID;
-    private int groupID;
+    private int belongsToGroup;
     private int personID;
     private String postDate = sdf.format(dt);
     private String changedDate = sdf.format(dt);
@@ -30,10 +30,10 @@ public class Post {
     }
 
     //Constructor containing all fields
-    public Post(int postID, int groupID, String postDate, String changedDate, String headline, String textField,
+    public Post(int postID, int belongsToGroup, String postDate, String changedDate, String headline, String textField,
                 List<Comments> comments, List<Views> views, List<Likes> likes, List<Dislikes> dislikes) {
         this.postID = postID;
-        this.groupID = groupID;
+        this.belongsToGroup = belongsToGroup;
         this.postDate = postDate;
         this.changedDate = changedDate;
         this.headline = headline;
@@ -54,12 +54,12 @@ public class Post {
         this.postID = postID;
     }
 
-    public int getGroupID() {
-        return groupID;
+    public int getBelongsToGroup() {
+        return belongsToGroup;
     }
 
-    public void setGroupID(int groupID) {
-        this.groupID = groupID;
+    public void setBelongsToGroup(int belongsToGroup) {
+        this.belongsToGroup = belongsToGroup;
     }
 
     public int getPersonID() {
