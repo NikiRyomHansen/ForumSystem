@@ -1,0 +1,43 @@
+input {
+    display:inline-block;
+    margin-top: 2%;
+    padding: 1%;
+
+}
+
+label {
+    float: left;
+    font-size: larger;
+    margin-top: 2%;
+    width: 15%;
+}
+
+textarea{
+    margin-top: 2%;
+    padding: 1%;
+}
+
+.btn {
+    border: none;
+    color: white;
+    padding: 7px 10px;
+    text-align: center;
+    background-color: green;
+}
+
+.btn:hover{
+    box-shadow: 2px 2px 2px #888888;
+}
+
+div{
+    margin-left: 15%;
+}
+
+#btn-createNewGroupSubmit{
+    width: 15%;
+}
+
+#btn-createNewGroupReset{
+    background-color: red;
+    width: 15%
+}

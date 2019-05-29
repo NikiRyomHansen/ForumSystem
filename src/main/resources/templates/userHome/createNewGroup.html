@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Create a new Group</title>
-    <link rel="stylesheet" type="text/css" href="/../userHomeCSS.css">
+    <link rel="stylesheet" type="text/css" href="/../createGroupCSS.css">
     <link rel="stylesheet" type="text/css" href="/../generalStyle.css">
 </head>
-<body>
+<body style="background-color: #c5ebef">
 
     <header th:replace="navigation/headNavigation" :: header>
     </header>
@@ -16,12 +16,16 @@
     <form action="/createNewGroup" method="post">
         <label>Group Name: </label>
         <input type="text" name="groupName"/>
+        <br>
         <label>Group Description: </label>
 
         <textarea rows="6" cols="50" type="text" name="groupDescription"></textarea>
-
-        <input style="color: green" type="submit" value="Confirm"/>
-        <input style="color: red" type="submit" value="Cancel"/>
+        <div>
+            <br>
+            <input class="btn" id="btn-createNewGroupSubmit" type="submit" value="Confirm"/>
+            <br>
+            <input class="btn" id="btn-createNewGroupReset" type="reset" value="Cancel"/>
+        </div>
 
 
     </form>
