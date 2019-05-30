@@ -47,7 +47,7 @@ public class UserMessageRepo {
     public PrivateMessage  sendPrivateMessage(Person toUser, Person fromUser, PrivateMessage message){
         String sql = "INSERT INTO private_messages (toUserID, fromUserID, headline, message, timestampPrivateMessage, isRead)" +
                 "VALUES (?,?,?,?,?,?)";
-        template.update(sql,toUser.getPersonID(), fromUser.getPersonID(), message.getHeadline(), message.getMessage(), message.getTimestamp(), message.isRead());
+        template.update(sql,toUser.getPersonID(), fromUser.getPersonID(), message.getHeadline(), message.getMessage(), message.getTimestampPrivateMessage(), message.isRead());
 
         return null;
     }

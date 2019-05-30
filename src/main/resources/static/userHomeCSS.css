@@ -1,3 +1,4 @@
+/*set the class btn to have the following elements*/
 .btn {
     border: none;
     color: white;
@@ -6,6 +7,7 @@
     text-align: center;
     background-color: green;
 }
+/*gives a hover to the btn class*/
 .btn:hover{
     box-shadow: 2px 2px 2px #888888;
 }
@@ -24,7 +26,10 @@
 #btn-deletePost{
     background-color: red;
 }
-
+/*
+padding set to 1% to add space around the button
+margin-top set to 2% to give a 2% margin to the top of the closest element
+*/
 #btn-createPost{
     margin-top: 2%;
     padding: 1%;
@@ -52,11 +57,12 @@ table{
     width: 100%;
     margin-top: 2%;
 }
-
+/*Table header, background-color set to clients request*/
 th{
     background-color: #4a9fa8;
 }
 
+/*sets the border, padding and aligns the text of table cells and table headers*/
 td, th {
     border: 1px solid black;
     text-align: left;

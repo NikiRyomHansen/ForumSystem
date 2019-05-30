@@ -150,14 +150,6 @@ public class UserActionController {
         return "redirect:/";
     }
 
-/*
-    //Returns the frontpage, when the button is pressed
-    @GetMapping("/userFrontPage")
-    public String goToFrontPage() {
-        return "userHome/userFrontPage";
-    }
-*/
-
     // (postToGroup)
 
     // Returns the createNewGroup html page
@@ -186,7 +178,6 @@ public class UserActionController {
     public String retrievePrivateMessages(@PathVariable("personID") int personID, Model model){
         List<PrivateMessage> privateMessage = userMessageService.getAllPrivateMessages(personID);
         model.addAttribute("privateMessage", privateMessage);
-
         return "userHome/messagePage";
     }
 

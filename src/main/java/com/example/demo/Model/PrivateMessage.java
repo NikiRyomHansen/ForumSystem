@@ -19,7 +19,7 @@ public class PrivateMessage {
     private int fromUserID;
     private String headline;
     private String message;
-    private String timestamp = sdf.format(dt);
+    private String timestampPrivateMessage = sdf.format(dt);
     private boolean isRead;
 
     // Fields related to the
@@ -36,24 +36,27 @@ public class PrivateMessage {
     }
 
     // constructor
-    public PrivateMessage(int privateMessageID, int toUserID, int fromUserID, String headline, String message, String timestamp, boolean isRead, String personUsername) {
+    public PrivateMessage(int privateMessageID, int toUserID, int fromUserID, String headline, String message,
+                          String timestampPrivateMessage, boolean isRead, String personUsername) {
         this.privateMessageID = privateMessageID;
         this.toUserID = toUserID;
         this.fromUserID = fromUserID;
         this.headline = headline;
         this.message = message;
-        this.timestamp = timestamp;
+        this.timestampPrivateMessage = timestampPrivateMessage;
         this.isRead = isRead;
     }
 
     // Constructor for the getAllPrivateMessages method all the information is needed to make the full join work
-    public PrivateMessage(int privateMessageID, int toUserID, int fromUserID, String headline, String message, String timestamp, boolean isRead, int personID, String personUsername, String personPassword, String email, byte[] picture, String personDescription, int permission) {
+    public PrivateMessage(int privateMessageID, int toUserID, int fromUserID, String headline, String message,
+                          String timestampPrivateMessage, boolean isRead, int personID, String personUsername,
+                          String personPassword, String email, byte[] picture, String personDescription, int permission){
         this.privateMessageID = privateMessageID;
         this.toUserID = toUserID;
         this.fromUserID = fromUserID;
         this.headline = headline;
         this.message = message;
-        this.timestamp = timestamp;
+        this.timestampPrivateMessage = timestampPrivateMessage;
         this.isRead = isRead;
         this.personID = personID;
         this.personUsername = personUsername;
@@ -105,12 +108,12 @@ public class PrivateMessage {
         this.message = message;
     }
 
-    public String getTimestamp() {
-        return timestamp;
+    public String getTimestampPrivateMessage() {
+        return timestampPrivateMessage;
     }
 
-    public void setTimestamp(String timestamp) {
-        this.timestamp = timestamp;
+    public void setTimestampPrivateMessage(String timestampPrivateMessage) {
+        this.timestampPrivateMessage = timestampPrivateMessage;
     }
 
     public boolean isRead() {
