@@ -10,6 +10,7 @@ public class UserUpdateService {
     @Autowired
     UserUpdateRepo userUpdateRepo;
 
+    // Calls method updatePerson from UserUpdateRepo
     public Person updatePerson(int personID, Person person) {
         return userUpdateRepo.updatePerson(personID, person);
     }

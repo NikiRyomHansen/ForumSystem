@@ -8,7 +8,7 @@ public class Views {
 
     @Id
     //fields
-    //formatting for Date
+    // The following two lines are used for when a date has to be read from the database.
     java.util.Date dt = new java.util.Date();
     java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 

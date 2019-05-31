@@ -1,3 +1,4 @@
+/* CSS to styling table in adminHome */
 table{
     border-collapse: collapse;
     width: 70%;
@@ -18,6 +19,7 @@ tr:nth-child(even){
     background-color: lightgrey;
 }
 
+/* Styling buttons */
 .btn {
     border: none;
     color: white;

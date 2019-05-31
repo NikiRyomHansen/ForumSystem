@@ -10,7 +10,7 @@ public class PrivateMessage {
 
     @Id
     //fields
-    // formatting for Date
+    // The following two lines are used for when a date has to be read from the database.
     java.util.Date dt = new java.util.Date();
     java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     // Fields related only to PrivateMessage
@@ -22,7 +22,7 @@ public class PrivateMessage {
     private String timestampPrivateMessage = sdf.format(dt);
     private boolean isRead;
 
-    // Fields related to the
+    // Fields related to the full join
     private int personID;
     private String personUsername;
     private String personPassword;

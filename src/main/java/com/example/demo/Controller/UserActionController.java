@@ -137,6 +137,7 @@ public class UserActionController {
         return "redirect:/";
     }
 
+    // Sends a get mapping request to the web application and delete post from database
     @GetMapping("/deletePost/{postID}")
     public String deletePost(@PathVariable("postID") int postID) {
         userPostService.deletePost(postID);
@@ -173,7 +174,7 @@ public class UserActionController {
     }
 
 
-    // Return the messages page
+    // Return the messages page and a list of messages
     @GetMapping("/messagePage/{personID}")
     public String retrievePrivateMessages(@PathVariable("personID") int personID, Model model){
         List<PrivateMessage> privateMessage = userMessageService.getAllPrivateMessages(personID);

@@ -12,10 +12,11 @@ public class UserViewService {
     @Autowired
     UserViewRepo userViewRepo;
 
+    // Calls method viewOnePerson from UserViewRepo
     public Person viewOnePerson(int personID) {
         return userViewRepo.viewOnePerson(personID);
     }
-
+    // Calls method viewListOfPerson from UserViewRepo
     public List<Person> viewListOfPerson() {
         return userViewRepo.viewListOfPerson();
     }

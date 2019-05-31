@@ -12,7 +12,7 @@ public class UserMessageService {
     @Autowired
     UserMessageRepo userMessageRepo;
 
-    // Service Method to Show all messages
+    // Calls Method to Show all messages
     public List<PrivateMessage> getAllPrivateMessages(int personID){
         return this.userMessageRepo.getAllPrivateMessages(personID);
     }
